@@ -20,9 +20,9 @@ class User extends Paybook
                 self::log('Retrieving existing user ... ');
                 $existing_users = self::get();
                 for ($i = 0; $i < count($existing_users); ++$i) {
-                    $id_existing_user = $existing_users[$i]['id_user'];
+                    $id_existing_user = $existing_users[$i]->id_user;
                     if ($id_existing_user == $id_user) {
-                        $user_array = $existing_users[$i].get_array();
+                        $user_array = $existing_users[$i]->get_array();
                     }//End of if
                 }//End of for
             }//End of if

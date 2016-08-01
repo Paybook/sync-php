@@ -59,10 +59,16 @@ class Paybook
             return 'Error in curl';
         }//End of if
         $response = curl_exec($curl);
+        $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $content_type = curl_getinfo($curl, CURLINFO_CONTENT_TYPE);
         curl_close($curl);
         $paybookResponse = json_decode($response, true);
-        if ($paybookResponse['code'] == 200) {
-            return $paybookResponse['response'];
+        if ($http_code == 200) {
+            if (strpos($content_type, 'json') !== false) {
+                return $paybookResponse['response'];
+            } else {
+                return $response;
+            }//End of if
         } else {
             throw new Error($paybookResponse['code'], $paybookResponse['response'], $paybookResponse['message'], $paybookResponse['status']);
         }//End of if
@@ -93,6 +99,16 @@ class Error extends Exception
         $this->message = $message;
         $this->status = $status;
     }//End of __construct
+
+    public function get_message()
+    {
+        return $this->message;
+    }//End of get_message
+
+    public function get_code()
+    {
+        return $this->code;
+    }//End of get_code
 
     public function get_array()
     {

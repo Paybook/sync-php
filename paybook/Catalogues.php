@@ -64,16 +64,23 @@ class Catalogues extends Paybook
         return $countries;
     }//End of get_countries
 
-    public static function get_sites($session = null, $id_user = null, $options = [])
+    public static function get_sites($session = null, $id_user = null, $options = [], $is_test = false)
     {
         self::log('');
         self::log('Catalogues->get_sites');
+        if ($options == null) {
+            // When is not given as optional param could be equal to null
+            $options = [];
+        }//End of if
         $params = $options;
         if ($id_user != null) {
             $params['api_key'] = self::$api_key;
             $params['id_user'] = $id_user;
         } else {
             $params['token'] = $session->token;
+        }//End of if
+        if ($is_test == true) {
+            $params['is_test'] = $is_test;
         }//End of if
         $site_arrays = self::call($endpoint = 'catalogues/sites', $method = 'get', $params = $params);
         $sites = [];
@@ -84,16 +91,23 @@ class Catalogues extends Paybook
         return $sites;
     }//End of get_sites
 
-    public static function get_site_organizations($session = null, $id_user = null, $options = [])
+    public static function get_site_organizations($session = null, $id_user = null, $options = [], $is_test = false)
     {
         self::log('');
         self::log('Catalogues->get_site_organizations');
+        if ($options == null) {
+            // When is not given as optional param could be equal to null
+            $options = [];
+        }//End of if
         $params = $options;
         if ($id_user != null) {
             $params['api_key'] = self::$api_key;
             $params['id_user'] = $id_user;
         } else {
             $params['token'] = $session->token;
+        }//End of if
+        if ($is_test == true) {
+            $params['is_test'] = $is_test;
         }//End of if
         $site_organization_arrays = self::call($endpoint = 'catalogues/site_organizations', $method = 'get', $params = $params);
         $site_organizations = [];
