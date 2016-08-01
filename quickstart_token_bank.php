@@ -5,9 +5,9 @@ require_once realpath(__DIR__.DIRECTORY_SEPARATOR.'paybook').DIRECTORY_SEPARATOR
 /*
 Change this values:
 */
-$YOUR_API_KEY = '7167a4a04f660f9131bafc949e8ca0fe';
-$BANK_USERNAME = 'test';
-$BANK_PASSWORD = 'test';
+$YOUR_API_KEY = 'YOUR_API_KEY';
+$BANK_USERNAME = 'YOUR_BANK_USERNAME';
+$BANK_PASSWORD = 'YOUR_BANK_PASSWORD';
 $USERNAME = 'MY_USER';
 // $BANK_SITE = 'Banorte en su empresa';//Token bank site of paybook production catalogue
 $BANK_SITE = 'Token';//Token bank site of paybook test catalogue
