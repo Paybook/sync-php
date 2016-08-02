@@ -8,7 +8,7 @@ $SITES_NAME_BY_ID = [];
 $TEST_USERNAME = 'test';
 $TEST_PASSWORD = 'test';
 $INDENT = '   ';
-$PAYBOOK_API_KEY = '7167a4a04f660f9131bafc949e8ca0fe';
+$PAYBOOK_API_KEY = 'YOUR_API_KEY';
 $USERNAME = 'PHP_LIBRARY_TEST_USER';
 
 function _print($message, $indents = 0)
