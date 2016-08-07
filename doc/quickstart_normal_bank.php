@@ -1,6 +1,6 @@
 <?php
 
-require_once realpath(__DIR__.DIRECTORY_SEPARATOR.'paybook').DIRECTORY_SEPARATOR.'SDK.php';
+// require __DIR__.'/vendor/autoload.php';
 
 /*
 Change this values:

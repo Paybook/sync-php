@@ -1,6 +1,6 @@
 <?php
 
-require_once realpath(__DIR__.DIRECTORY_SEPARATOR.'..').DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'paybook'.DIRECTORY_SEPARATOR.'SDK.php';
+// require __DIR__.'/vendor/autoload.php';
 
 $INDENT = '   ';
 $SITE_ORGANIZATIONS_NAME_BY_ID = [];
