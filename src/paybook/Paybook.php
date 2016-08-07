@@ -62,15 +62,21 @@ class Paybook
         $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         $content_type = curl_getinfo($curl, CURLINFO_CONTENT_TYPE);
         curl_close($curl);
-        $paybookResponse = json_decode($response, true);
         if ($http_code == 200) {
             if (strpos($content_type, 'json') !== false) {
+                $paybookResponse = json_decode($response, true);
+
                 return $paybookResponse['response'];
             } else {
                 return $response;
             }//End of if
         } else {
-            throw new Error($paybookResponse['code'], $paybookResponse['response'], $paybookResponse['message'], $paybookResponse['status']);
+            if (strpos($content_type, 'json') !== false) {
+                $paybookResponse = json_decode($response, true);
+                throw new Error($http_code, $paybookResponse['response'], $paybookResponse['message'], $paybookResponse['status']);
+            } else {
+                throw new Error($http_code);
+            }//End of if
         }//End of if
     }//End of __call
 
@@ -92,7 +98,7 @@ class Paybook
 
 class Error extends Exception
 {
-    public function __construct($code, $response, $message, $status)
+    public function __construct($code, $response = '', $message = '', $status = '')
     {
         $this->code = $code;
         $this->response = $response;

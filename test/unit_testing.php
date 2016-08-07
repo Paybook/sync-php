@@ -1,6 +1,6 @@
 <?php
 
-require_once realpath(__DIR__.DIRECTORY_SEPARATOR.'paybook').DIRECTORY_SEPARATOR.'SDK.php';
+require_once realpath(__DIR__.DIRECTORY_SEPARATOR.'..').DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'paybook'.DIRECTORY_SEPARATOR.'SDK.php';
 
 $INDENT = '   ';
 $SITE_ORGANIZATIONS_NAME_BY_ID = [];
@@ -127,15 +127,19 @@ try {
     print_step('Init library with incorrect API key');
     paybook\Paybook::init('this_is_an_incorrect_api_key');
 
-    print_step('Performs a call to API');
+    print_step('Performs a call to API [ User.get() ]');
     try {
         $users = paybook\User::get();
     } catch (paybook\Error $e) {
-        _print($e->get_code().' '.$e->get_message(), 2);
+        if ($e->get_code() == 401) {
+            _print($e->get_code().' '.$e->get_message(), 2);
+        } else {
+            throw $e;
+        }//End of if
     }//End of try
 
     print_step('Init library with correct API key');
-    paybook\Paybook::init($PAYBOOK_API_KEY);
+    paybook\Paybook::init($PAYBOOK_API_KEY, true);
 
     _print(PHP_EOL.' -> USERS ENDPOINTS '.PHP_EOL);
 
