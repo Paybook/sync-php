@@ -1,8 +1,0 @@
-{
-    "name": "paybook/sync",
-    "autoload": {
-        "psr-0" : {
-            "paybook\\sync" : "paybook"
-        }
-    }
-}
