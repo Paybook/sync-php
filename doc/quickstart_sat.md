@@ -84,17 +84,17 @@ foreach ($my_users as $index => $my_user) {
 ####7. Creamos una nueva sesión:
 Para sincronizar las facturas del SAT primero tenemos que crear una sesión, la sesión estará ligada al usuario y tiene un proceso de expiración de 5 minutos después de que ésta ha estado inactiva. Para crear una sesión:
 
-```python
-session = paybook.Session(user)
-print 'Session token: ' + session.token
+```php
+$session = new paybook\Session($user);
+_print('Token: '.$session->token);
 ```
 
 ####8. Podemos validar la sesión creada:
 De manera opcional podemos validar la sesión, es decir, checar que no haya expirado.
 
 ```php
-$session = new paybook\Session($user);
-_print('Token: '.$session->token);
+$session_verified = $session->verify();
+_print('Session verfied: '.strval($session_verified));
 ```
 
 ####9. Consultamos el catálogo de instituciones que podemos sincronizar y extraemos el SAT:
