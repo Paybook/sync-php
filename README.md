@@ -39,11 +39,11 @@ En caso de que no hayas creado un proyecto nuevo y estés modificando un proyect
 
 Antes de consultar la documentación puedes tomar alguno de nuestros tutoriales:
 
-- [Quickstart para sincronizar al SAT](https://github.com/Paybook/sync-py/blob/master/quickstart_sat.md)
+- [Quickstart para sincronizar al SAT](https://github.com/Paybook/sync-php/blob/master/doc/quickstart_sat.md)
 
-- [Quickstart para sincronizar una cuenta bancaria con credenciales sencillas (usuario y contraseña)](https://github.com/Paybook/sync-py/blob/master/quickstart_normal_bank.md)
+- [Quickstart para sincronizar una cuenta bancaria con credenciales sencillas (usuario y contraseña)](https://github.com/Paybook/sync-php/blob/master/doc/quickstart_normal_bank.md)
 
-- [Quickstart para sincronizar una cuenta bancaria con token (usuario y contraseña)](https://github.com/Paybook/sync-py/blob/master/quickstart_token_bank.md)
+- [Quickstart para sincronizar una cuenta bancaria con token (usuario y contraseña)](https://github.com/Paybook/sync-php/blob/master/doc/quickstart_token_bank.md)
 
 ## Recordatorios:
 
