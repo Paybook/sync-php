@@ -214,7 +214,7 @@ while (!$bank_sync_completed) {
         }//End of if
     }//End of foreach
 }//End of while 
-``
+```
 
 ####8. Consultamos las transacciones de la institución bancaria:
 
