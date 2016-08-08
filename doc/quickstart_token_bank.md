@@ -232,7 +232,7 @@ _print('Bank transactions: '.strval(count($bank_transactions)));
 
 ###Siguientes Pasos
 
-- Puedes consultar y analizar la documentación completa de la librería [aquí](https://github.com/Paybook/sync-py/blob/master/readme.md)
+- Puedes consultar y analizar la documentación completa de la librería [aquí](https://github.com/Paybook/sync-php/blob/master/README.md)
 
 - Puedes consultar y analizar la documentación del API REST [aquí](https://www.paybook.com/sync/docs)
 

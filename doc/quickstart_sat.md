@@ -187,13 +187,13 @@ if (count($sat_attachments) > 0) {
 
 ### Siguientes Pasos
 
-- Revisar el tutorial de como sincronizar una institución bancaria con credenciales simples (usuario y contraseña) [aquí](https://github.com/Paybook/sync-py/blob/master/quickstart_normal_bank.md)
+- Revisar el tutorial de como sincronizar una institución bancaria con credenciales simples (usuario y contraseña) [aquí](https://github.com/Paybook/sync-php/blob/master/doc/quickstart_normal_bank.md)
 
-- Revisar el tutorial de como sincronizar una institución bancaria con token [aquí](https://github.com/Paybook/sync-py/blob/master/quickstart_token_bank.md)
+- Revisar el tutorial de como sincronizar una institución bancaria con token [aquí](https://github.com/Paybook/sync-php/blob/master/doc/quickstart_token_bank.md)
 
-- Puedes consultar y analizar la documentación completa de la librería [aquí](https://github.com/Paybook/sync-py/blob/master/readme.md)
+- Puedes consultar y analizar la documentación completa de la librería [aquí](https://github.com/Paybook/sync-php)
 
-- Puedes consultar y analizar la documentación del API REST [aquí](https://www.paybook.com/sync/docs#api-Overview)
+- Puedes consultar y analizar la documentación del API REST [aquí](https://www.paybook.com/sync/docs)
 
 - Acceder a nuestro proyecto en Github y checar todos los recursos que Paybook tiene para ti [aquí](https://github.com/Paybook)
 
