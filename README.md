@@ -6,7 +6,7 @@ Esta es la librería de Paybook para PHP. Mediante esta librería usted puede im
 
 ### Requerimientos
 
-1. [PHP](http://php.net/)
+1. [PHP](http://php.net/) (versión recomendada posterior o igual a 5.6.X)
 2. [Composer](https://getcomposer.org/doc/00-intro.md)
 
 ### Instalación
