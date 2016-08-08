@@ -10,7 +10,7 @@ A lo largo de este tutorial te enseñaremos como sincronizar una institución ba
 
 ##Ejecución:
 
-Este tutorial está basado en el script [quickstart_normal_bank.py](https://github.com/Paybook/sync-php/blob/master/doc/quickstart_normal_bank.php) por lo que puedes descargar el archivo, configurar los valores YOUR_API_KEY, YOUR_BANK_USERNAME y YOUR_BANK_PASSWORD y ejecutarlo en tu equipo:
+Este tutorial está basado en el script [quickstart_normal_bank.php](https://github.com/Paybook/sync-php/blob/master/doc/quickstart_normal_bank.php) por lo que puedes descargar el archivo, configurar los valores YOUR_API_KEY, YOUR_BANK_USERNAME y YOUR_BANK_PASSWORD y ejecutarlo en tu equipo:
 
 ```
 $ php quickstart_normal_bank.php
@@ -155,7 +155,7 @@ _print('Bank transactions: '.strval(count($bank_transactions)));
 
 - Puedes consultar y analizar la documentación completa de la librearía [aquí](https://github.com/Paybook/sync-php/blob/master/README.md)
 
-- Puedes consultar y analizar la documentación del API REST [aquí](https://www.paybook.com/sync/docs#api-Overview)
+- Puedes consultar y analizar la documentación del API REST [aquí](https://www.paybook.com/sync/docs)
 
 - Acceder a nuestro proyecto en Github y checar todos los recursos que Paybook tiene para ti [aquí](https://github.com/Paybook)
 

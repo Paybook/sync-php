@@ -1,20 +1,20 @@
 
 ##QUICKSTART BANCO CON TOKEN
 
-A lo largo de este tutorial te enseñaremos como sincronizar una institución bancaria con token, es decir, aquella que además de requerir una autenticación (usuario y contraseña) solicita un token, ejemplos de estas instituciones pueden ser Banorte o BBVA Bancomer. En el tutorial asumiremos que ya hemos creado usuarios y por tanto tenemos usuarios ligados a nuestra API KEY, también asumiremos que hemos instalado la librería de python y hecho las configuraciones pertinentes. Si tienes dudas acerca de esto te recomendamos que antes de tomar este tutorial consultes el [Quickstart para sincronizar al SAT](https://github.com/Paybook/sync-py/blob/master/quickstart_sat.md) ya que aquí se abordan los temas de creación de usuarios y sesiones.  
+A lo largo de este tutorial te enseñaremos como sincronizar una institución bancaria con token, es decir, aquella que además de requerir una autenticación (usuario y contraseña) solicita un token, ejemplos de estas instituciones pueden ser Banorte o BBVA Bancomer. En el tutorial asumiremos que ya hemos creado usuarios y por tanto tenemos usuarios ligados a nuestra API KEY, también asumiremos que hemos instalado la librería y hecho las configuraciones pertinentes. Si tienes dudas acerca de esto te recomendamos que antes de tomar este tutorial consultes el [Quickstart para sincronizar al SAT](https://github.com/Paybook/sync-php/blob/master/doc/quickstart_sat.md) ya que aquí se abordan los temas de creación de usuarios y sesiones.  
 
 ### Requerimientos
 
-1. Haber consultado el tutorial [Quickstart General](https://github.com/Paybook/sync-py/blob/master/quickstart.md)
+1. Haber consultado el tutorial [Quickstart SAT](https://github.com/Paybook/sync-php/blob/master/doc/quickstart_sat.md)
 2. Tener credenciales de alguna institución bancaria del catálogo de Paybook que solicite token
 
 
 ##Ejecución:
 
-Este tutorial está basado en el script [quickstart_token_bank.py](https://github.com/Paybook/sync-py/blob/master/quickstart_token_bank.py) por lo que puedes descargar el archivo, configurar los valores YOUR_API_KEY, YOUR_BANK_USERNAME y YOUR_BANK_PASSWORD y ejecutarlo en tu equipo. Es recomendable tener el token a la mano puesto que el script eventualmente lo solicitará:
+Este tutorial está basado en el script [quickstart_token_bank.php](https://github.com/Paybook/sync-php/blob/master/doc/quickstart_token_bank.php) por lo que puedes descargar el archivo, configurar los valores YOUR_API_KEY, YOUR_BANK_USERNAME y YOUR_BANK_PASSWORD y ejecutarlo en tu equipo. Es recomendable tener el token a la mano puesto que el script eventualmente lo solicitará:
 
 ```
-$ python quickstart_normal_bank.py
+$ php quickstart_normal_bank.php
 ```
 
 Una vez que has ejecutado el archivo podemos continuar analizando el código.
@@ -23,21 +23,37 @@ Una vez que has ejecutado el archivo podemos continuar analizando el código.
 El primer paso para realizar la mayoría de las acciones en Paybook es tener un usuario e iniciar una sesión, por lo tanto haremos una consulta de nuestra lista de usuarios y seleccionaremos el usuario con el que deseamos trabajar. Una vez que tenemos al usuario iniciamos sesión con éste.
 
 
-```python
-user_list = paybook_sdk.User.get()
-user = user_list[0]
-print user.name + ' ' + user.id_user
-session = paybook_sdk.Session(user=user)
-print session.token
+```php
+$my_users = paybook\User::get();
+$user = null;
+foreach ($my_users as $index => $my_user) {
+    if ($my_user->name == $USERNAME) {
+        _print('User '.$USERNAME.' already exists');
+        $user = $my_user;
+    }//End of if
+}//End of foreach
+if ($user == null) {
+    _print('Creating user '.$USERNAME);
+    $user = new paybook\User($USERNAME);
+}//End of if
+$session = new paybook\Session($user);
+_print('Token: '.$session->token);
 ```
 
 ####2. Consultamos el catálogo de las instituciones de Paybook:
 Recordemos que Paybook tiene un catálogo de instituciones que podemos seleccionar para sincronizar nuestros usuarios. A continuación consultaremos este catálogo:
 
-```python
-sites = paybook_sdk.Catalogues.get_sites(session=session)
-for site in sites:
-	print site.name
+```php
+$sites = paybook\Catalogues::get_sites($session);
+$bank_site = null;
+_print('Sites list:');
+foreach ($sites as $index => $site) {
+    _print($site->name);
+    if ($site->name == $BANK_SITE) {
+        $bank_site = $site;
+    }//End of if
+}//End of foreach
+_print('Bank site: '.$bank_site->id_site.' '.$bank_site->name);
 ```
 
 El catálogo muestra las siguienes instituciones:
@@ -59,29 +75,19 @@ El catálogo muestra las siguienes instituciones:
 15. Empresas
 16. InbuRed
 
-Para efectos de este tutorial seleccionaremos **Banorte en su empresa** pero tu puedes seleccionar la institución de la cual tienes credenciales y token.
-
-```python
-bank_site = None
-sites = paybook_sdk.Catalogues.get_sites(session=session)
-for site in sites:
-	print site.name
-	if site.name == 'Banorte en su empresa':
-	   	bank_site = site
-print 'Bank site: ' + bank_site.name + ' ' + bank_site.id_site
-```
+Usted puede seleccionar cualquier institución y guardarla en la variable $bank_site.
 
 ####3. Registramos las credenciales:
 
 A continuación registraremos las credenciales de nuestro banco, es decir, el usuario y contraseña que nos proporcionó el banco para acceder a sus servicios en línea:
 
-```python
-CREDENTIALS = {
-	'username' : BANK_USERNAME,
-	'password' : BANK_PASSWORD
-}#End of CREDENTIALS
-bank_credentials = paybook_sdk.Credentials(session=session,id_site=bank_site.id_site,credentials=CREDENTIALS)
-print bank_credentials.id_credential + ' ' + bank_credentials.username
+```php
+$credentials_params = [
+    'username' => $BANK_USERNAME,
+    'password' => $BANK_PASSWORD,
+];//End of credentials_params
+_print('Creating credentials of '.$bank_site->name);
+$bank_credentials = new paybook\Credentials($session, null, $bank_site->id_site, $credentials_params);
 ```
 ####4. Checamos el estatus
 
@@ -99,7 +105,7 @@ Una vez que has registrado las credenciales de una institución bancaria para un
 | 200      | La institución ha sido sincronizada    | 
 
 ## Maquina de estados exitosos:
-
+El
 ![Success](https://github.com/Paybook/sync-py/blob/master/token.png "Success")
 
 ## Maquina de estados de error:
@@ -110,9 +116,8 @@ Una vez que has registrado las credenciales de una institución bancaria para un
 
 Checamos el estatus de las credenciales:
 
-```python
-sync_status = bank_credentials.get_status(session=session)
-print sync_status
+```php
+$status = $bank_credentials->get_status($session);
 ```
 ####5. Analizamos el estatus:
 
@@ -124,56 +129,66 @@ El estatus se muestra a continuación:
 
 Esto quiere decir que las credenciales han sido registradas y se están validando. La institución bancaria a sincronizar i.e. Banorte, requiere de token por lo que debemos esperar un estatus 410, para esto podemos polear mediante un bucle sobre los estados de las credenciales hasta que se tenga un estatus 410, es decir, que el token sea solicitado:
 
-```python
-print 'Esperando por token ... '
-status_410 = None
-while status_410 is None:
-	print ' . . . '
-	time.sleep(3)
-	sync_status = bank_credentials.get_status(session=session)
-	print sync_status
-	for status in sync_status:
-	    code = status['code']
-	    if code == 410:
-	        status_410 = status
+```php
+_print('Wating for token request ... ');
+$status_410 = false;
+while (!$status_410) {
+    sleep(5);
+    $status = $bank_credentials->get_status($session);
+    print_status($status);
+    foreach ($status as $index => $each_status) {
+        $code = $each_status['code'];
+        if ($code == 410) {
+            $status_410 = true;
+        } elseif ($code >= 400 && $code <= 411) {
+            _print('There was an error with your credentials with code: '.strval($code).'.');
+            _print('Check the code status in https://www.paybook.com/sync/docs'.PHP_EOL.PHP_EOL);
+            exit();
+        }//End of if
+    }//End of foreach
+}//End of while 
 ```
 
 **Importante:** En este paso también se debe contemplar que en vez de un código 410 (esperando token) se puede obtener un código 401 (credenciales inválidas) lo que implica que se deben registrar las credenciales correctas, por lo que el bucle se puede módificar para agregar esta lógica.
 
 ####6. Enviar token bancario
-Ahora hay que ingresar el valor del token, el cual lo podemos solicitar en python a través de la interfaz raw_input:
+Ahora hay que ingresar el valor del token, el cual lo podemos solicitar en PHP a través de la interfaz readline:
 
-```python
-twofa_value = raw_input('Ingresa el código de seguridad: ')
-twofa = bank_credentials.set_twofa(session=session,twofa_value=twofa_value)
-print 'Twofa: ' + str(twofa)
+```php
+$token_value = readline('Bank token: ');
+$bank_credentials->set_twofa($session, null, $token_value);
+$bank_sync_completed = false;
 ```
 
 Una vez que el token bancario es enviado, volvemos a polear por medio de un bucle buscando que el estatus sea 102, es decir, que el token haya sido validado y ahora Paybook se encuentre sincronzando a nuestra institución bancaria, o bien, buscando el estatus 401, es decir, que el token no haya sido validado y por tanto lo tengamos que volver a enviar:
 
-```python
-print 'Esperando validacion de token ... '
-status_102_or_401 = None
-while status_102_or_401 is None:
-    print ' . . . '
-    time.sleep(3)
-    sync_status = bank_credentials.get_status(session=session)
-    print sync_status
-    for status in sync_status:
-        code = status['code']
-        if code == 102 or code == 401:
-            status_102_or_401 = status
-	if status['code'] == 401:
-	    print 'Error en credenciales'
-	    sys.exit()
+```php
+_print('Wating for token sync to be done ... ');
+while (!$bank_sync_completed) {
+    sleep(5);
+    $status = $bank_credentials->get_status($session);
+    print_status($status);
+    foreach ($status as $index => $each_status) {
+        $code = $each_status['code'];
+        if ($code >= 200 && $code <= 205) {
+            $bank_sync_completed = true;
+        } elseif (($code >= 400 && $code <= 411) && $code != 410) {
+            _print('There was an error with your credentials with code: '.strval($code).'.');
+            _print('Check the code status in https://www.paybook.com/sync/docs'.PHP_EOL.PHP_EOL);
+            exit();
+        }//End of if
+    }//End of foreach
+}//End of while 
 ```
 
-Es importante checar el código 401 que indica que el token introducido es incorrecto, por lo que se puede programar una rutina para pedir el token nuevamente:
+Es importante checar el código 401 que indica que el token introducido es incorrecto, por lo que se puede programar una rutina para pedir el token nuevamente o terminar el script:
 
-```python
-if status['code'] == 401:
-	None
-	# Rutina para pedir el token nuevamente	
+```php
+if (($code >= 400 && $code <= 411) && $code != 410) {
+    _print('There was an error with your credentials with code: '.strval($code).'.');
+    _print('Check the code status in https://www.paybook.com/sync/docs'.PHP_EOL.PHP_EOL);
+    exit();
+}//End of if	
 ```
 
 En caso de que el estatus sea 102 se evitará la validación previa y podremos continuar con los siguientes pasos.
@@ -182,35 +197,35 @@ En caso de que el estatus sea 102 se evitará la validación previa y podremos c
 
 Una vez que la sincronización se encuentra en proceso (código 102), podemos construir un bucle para polear y esperar por el estatus de fin de sincronización (código 200).
 
-```python
-print 'Esperando sincronizacion ... '
-status_200 = None
-while status_200 is None:
-    print ' . . . '
-    time.sleep(3)
-    sync_status = bank_credentials.get_status(session=session)
-    print sync_status
-    for status in sync_status:
-        code = status['code']
-        if code == 200:
-            status_200 = status
-```
+```php
+_print('Wating for token sync to be done ... ');
+while (!$bank_sync_completed) {
+    sleep(5);
+    $status = $bank_credentials->get_status($session);
+    print_status($status);
+    foreach ($status as $index => $each_status) {
+        $code = $each_status['code'];
+        if ($code >= 200 && $code <= 205) {
+            $bank_sync_completed = true;
+        } elseif (($code >= 400 && $code <= 411) && $code != 410) {
+            _print('There was an error with your credentials with code: '.strval($code).'.');
+            _print('Check the code status in https://www.paybook.com/sync/docs'.PHP_EOL.PHP_EOL);
+            exit();
+        }//End of if
+    }//End of foreach
+}//End of while 
+``
 
 ####8. Consultamos las transacciones de la institución bancaria:
 
 Una vez que la sincronización ha terminado podemos consultar las transacciones:
 
-```python
-transactions = paybook_sdk.Transaction.get(session=session)
-```
-
-Podemos desplegar información de las transacciones:
-
-```python
-i = 0
-for transaction in transactions:
-    i+=1
-    print str(i) + '. ' + transaction.description + ' $' + str(transaction.amount) 
+```php
+$options = [
+    'id_credential' => $bank_credentials->id_credential,
+];//End of $options
+$bank_transactions = paybook\Transaction::get($session, null, $options);
+_print('Bank transactions: '.strval(count($bank_transactions)));
 ```
 
 ¡Felicidades! has terminado con este tutorial.
@@ -219,7 +234,7 @@ for transaction in transactions:
 
 - Puedes consultar y analizar la documentación completa de la librería [aquí](https://github.com/Paybook/sync-py/blob/master/readme.md)
 
-- Puedes consultar y analizar la documentación del API REST [aquí](https://www.paybook.com/sync/docs#api-Overview)
+- Puedes consultar y analizar la documentación del API REST [aquí](https://www.paybook.com/sync/docs)
 
 - Acceder a nuestro proyecto en Github y checar todos los recursos que Paybook tiene para ti [aquí](https://github.com/Paybook)
 
