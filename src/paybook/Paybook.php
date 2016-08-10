@@ -53,10 +53,14 @@ class Paybook
             CURLOPT_CUSTOMREQUEST => $method,
             CURLOPT_POSTFIELDS => $dataString,
             CURLOPT_HTTPHEADER => $headers,
+            CURLOPT_SSL_VERIFYPEER => false, // Solves windows compatibility
+            CURLOPT_SSL_VERIFYHOST => false, // Solves windows compatibility
         ));//End of curl_setopt_array
         $error = curl_error($curl);
         if ($error) {
-            return 'Error in curl';
+            self::log(self::INDENT.'CURL error:        ', $call = true);
+            print_r($error);
+            throw new Error(500, null, 'CURL error', null);
         }//End of if
         $response = curl_exec($curl);
         $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
