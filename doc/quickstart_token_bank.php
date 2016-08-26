@@ -105,7 +105,7 @@ try {
     ];//End of $options
     $bank_transactions = paybook\Transaction::get($session, null, $options);
     _print('Bank transactions: '.strval(count($bank_transactions)));
-    $bank_attachments = paybook\Attachment::get($session, null, null, $options);
+    $bank_attachments = paybook\Attachment::get($session, null, null, null, $options);
     _print('Bank attachments: '.strval(count($bank_attachments)));
     if (count($bank_attachments) > 0) {
         _print('Getting a Bank attachment');

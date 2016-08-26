@@ -81,7 +81,7 @@ try {
     ];//End of $options
     $sat_transactions = paybook\Transaction::get($session, null, $options);
     _print('SAT transactions: '.strval(count($sat_transactions)));
-    $sat_attachments = paybook\Attachment::get($session, null, null, $options);
+    $sat_attachments = paybook\Attachment::get($session, null, null, null, $options);
     _print('SAT attachments: '.strval(count($sat_attachments)));
     if (count($sat_attachments) > 0) {
         _print('Getting a SAT attachment');
