@@ -4,7 +4,7 @@ namespace paybook;
 
 class User extends Paybook
 {
-    public function __construct($name = null, $id_user = null, $user_array = null)
+    public function __construct($name = null, $id_user = null, $id_external = null, $user_array = null)#$user_array is used just internally (private argument)
     {
         // self::log('');
         // self::log('User->__construct');
@@ -15,6 +15,9 @@ class User extends Paybook
                     'api_key' => self::$api_key,
                     'name' => $name,
                 ];//End of $data
+                if ($id_external != null) {
+                    $data['id_external'] = $id_external;
+                }//End of if
                 $user_array = self::call($endpoint = 'users', $method = 'post', $data = $data);
             } elseif ($id_user != null) {
                 self::log('Retrieving existing user ... ');
@@ -51,13 +54,12 @@ class User extends Paybook
         self::log('');
         self::log('User->get');
         $users = [];
-        $params = [
-            'api_key' => self::$api_key,
-        ];//End of $params
+        $params = $options;
+        $params['api_key'] = self::$api_key;
         $user_arrays = self::call($endpcoint = 'users', $method = 'get', $params = $params);
         for ($i = 0; $i < count($user_arrays); ++$i) {
             $user_array = $user_arrays[$i];
-            $user = new self($name = null, $id_user = null, $user_array = $user_array);
+            $user = new self($name = null, $id_user = null, $id_external = null, $user_array = $user_array);
             array_push($users, $user);
         }//End of for
         return $users;
