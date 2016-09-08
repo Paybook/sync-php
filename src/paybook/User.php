@@ -10,6 +10,7 @@ class User extends Paybook
         // self::log('User->__construct');
         if ($user_array === null) {
             if ($id_user == null && $name != null) {
+                // Creates a new user
                 self::log('Creating new user ... ');
                 $data = [
                     'api_key' => self::$api_key,
@@ -20,14 +21,30 @@ class User extends Paybook
                 }//End of if
                 $user_array = self::call($endpoint = 'users', $method = 'post', $data = $data);
             } elseif ($id_user != null) {
-                self::log('Retrieving existing user ... ');
-                $existing_users = self::get();
-                for ($i = 0; $i < count($existing_users); ++$i) {
-                    $id_existing_user = $existing_users[$i]->id_user;
-                    if ($id_existing_user == $id_user) {
-                        $user_array = $existing_users[$i]->get_array();
+                if ($name != null || $id_external != null) {
+                    // Updates an existing user
+                    self::log('Updating existing user ... ');
+                    $data = [
+                        'api_key' => self::$api_key,
+                    ];//End of $data
+                    if ($id_external != null) {
+                        $data['id_external'] = $id_external;
                     }//End of if
-                }//End of for
+                    if ($name != null) {
+                        $data['name'] = $name;
+                    }//End of if
+                    $user_array = self::call($endpoint = 'users/'.$id_user, $method = 'put', $data = $data);
+                } else {
+                    // Retrieves an existing user
+                    self::log('Retrieving existing user ... ');
+                    $existing_users = self::get();
+                    for ($i = 0; $i < count($existing_users); ++$i) {
+                        $id_existing_user = $existing_users[$i]->id_user;
+                        if ($id_existing_user == $id_user) {
+                            $user_array = $existing_users[$i]->get_array();
+                        }//End of if
+                    }//End of for
+                }//End of if
             }//End of if
         }//End of if
         $this->name = $user_array['name'];
