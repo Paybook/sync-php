@@ -8,16 +8,16 @@ Las modifiaciones hechas al proyecto original fueron las siguientes:
 
 1. Se modificó el archivo composer del proyecto para agregar la librería de Paybook.
 
-2. Se modificó la página de /home del proyecto para que mostrará datos obtenidos haciendo uso del API de Paybook por medio de la librería de PHP.
+2. Se modificó la página de home del proyecto para que mostrará datos obtenidos haciendo uso del API de Paybook por medio de la librería de PHP.
 
 
-## Installation
+## Instalación
 
 ### Clonar el contenido
 
 Debes clonar el contenido de la carpeta CagePHP a tu computadora en el directoro de tu elección.
 
-### Instalar dependencias
+### Dependencias
 
 Dentro del directorio creado en el paso previo ejecutar:
 
@@ -25,7 +25,7 @@ Dentro del directorio creado en el paso previo ejecutar:
 $ composer install
 ```
 
-Esto instalará todas las dependencias que la aplicación requiere además de instalar la librería de paybook. Es importante mencionar que para instalar la librería de Paybook se tuvo que modificar el archivo composer.json original del proyecto:
+Esto instalará todas las dependencias que la aplicación requiere además de instalar la librería de Paybook. Es importante mencionar que para instalar la librería de Paybook se tuvo que modificar el archivo composer.json original del proyecto:
 
 ```
 "require": {
@@ -42,7 +42,7 @@ Aquí se puede ver como se agrega la dependencia de Paybook por medio de la lín
 
 ### Configurar API Key
 
-Modificar el archivo /src/Template/Pages/home.ctp en la línea 22 y agrega el valor de tu API key de Paybook:
+Modificar el archivo /src/Template/Pages/home.ctp en la línea 22 y agregar el valor de tu API key de Paybook:
 
 ```php
 $PAYBOOK_API_KEY = 'YOUR_API_KEY';
@@ -79,11 +79,11 @@ http://localhost:8765
 
 Se verá una pantalla como la siguiente:
 
-![Instituciones](https://github.com/Paybook/sync-py/blob/master/sites.png "Instituciones")
+![Success](https://github.com/Paybook/sync-php/blob/master/examples/cagePHP/success.png)
 
 En caso de no haber configurado tu API key o que esta sea incorrecta verás una pantalla como la siguiente:
 
-![Instituciones](https://github.com/Paybook/sync-py/blob/master/sites.png "Instituciones")
+![Error](https://github.com/Paybook/sync-php/blob/master/examples/cagePHP/unauthorized.png)
 
 Felicidades, has terminado con este tutorial :)
 
