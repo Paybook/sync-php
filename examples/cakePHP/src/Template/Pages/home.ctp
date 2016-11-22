@@ -19,7 +19,7 @@ use Cake\Datasource\ConnectionManager;
 use Cake\Error\Debugger;
 use Cake\Network\Exception\NotFoundException;
 
-$PAYBOOK_API_KEY = 'YOUR_API_KEY';
+$PAYBOOK_API_KEY = 'YOUR_PAYBOOK_API_KEY';
 
 paybook\Paybook::init($PAYBOOK_API_KEY, true);
 $users = paybook\User::get();

@@ -9,20 +9,35 @@ class Paybook
     public static $api_key = null;
     public static $print_calls = false;
     public static $log = false;
+    public static $env_url = false;
     const INDENT = '   ';
     const PAYBOOK_URL = 'https://sync.paybook.com/v1/';
 
-    public static function init($api_key, $print_calls = false, $log = false)
+    public static function init($api_key, $print_calls = false, $log = false, $env_url = false)
     {
         self::$api_key = $api_key;
         self::$print_calls = $print_calls;//For debugging
         self::$log = $log;
+        self::$env_url = $env_url;//For debugging in other environment
+    }//End of init
+
+    public static function get_env()
+    {
+        if (self::$env_url == false) {
+            return self::PAYBOOK_URL;
+        } else {
+            return self::$env_url;
+        }//End of if 
     }//End of init
 
     public static function call($endpoint = null, $method = null, $data = null, $params = null, $headers = null, $url = false)
     {
         if ($url == null) {
-            $url = self::PAYBOOK_URL.$endpoint;
+            if (self::$env_url == false) {
+                $url = self::PAYBOOK_URL.$endpoint;//By default uses production environment
+            } else {
+                $url = self::$env_url.$endpoint;// It uses the given environment
+            }//End of if
         }//End of if
         $method = strtoupper($method);
         self::log(self::INDENT.'API Key:        '.strval(self::$api_key), $call = true);

@@ -7,6 +7,8 @@ class Account extends Paybook
     public function __construct($account_array)
     {
         $this->id_account = array_key_exists('id_account', $account_array) ? $account_array['id_account'] : '';
+        $this->account_type = array_key_exists('account_type', $account_array) ? $account_array['account_type'] : '';
+        $this->extra = array_key_exists('extra', $account_array) ? $account_array['extra'] : [];
         $this->id_user = array_key_exists('id_user', $account_array) ? $account_array['id_user'] : '';
         $this->id_external = array_key_exists('id_external', $account_array) ? $account_array['id_external'] : '';
         $this->id_credential = array_key_exists('id_credential', $account_array) ? $account_array['id_credential'] : '';
@@ -43,6 +45,8 @@ class Account extends Paybook
     {
         return [
             'id_account' => $this->id_account,
+            'account_type' => $this->account_type,
+            'extra' => $this->extra,
             'id_user' => $this->id_user,
             'id_external' => $this->id_external,
             'id_credential' => $this->id_credential,
