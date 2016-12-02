@@ -33,6 +33,7 @@ class Credentials extends Paybook
         }//End of if
         $this->id_credential = $credentials_array['id_credential'];
         $this->username = $credentials_array['username'];
+        $this->dt_refresh = array_key_exists('dt_refresh', $credentials_array) ? $credentials_array['dt_refresh'] : null;
         $this->id_site_organization = array_key_exists('id_site_organization', $credentials_array) ? $credentials_array['id_site_organization'] : null;
         $this->id_site_organization_type = array_key_exists('id_site_organization_type', $credentials_array) ? $credentials_array['id_site_organization_type'] : null;
         $this->ws = array_key_exists('ws', $credentials_array) ? $credentials_array['ws'] : null;
@@ -130,6 +131,7 @@ class Credentials extends Paybook
         return [
             'id_site' => $this->id_site,
             'id_site_organization' => $this->id_site_organization,
+            'dt_refresh' => $this->dt_refresh,
             'id_site_organization_type' => $this->id_site_organization_type,
             'id_credential' => $this->id_credential,
             'status' => $this->status,
