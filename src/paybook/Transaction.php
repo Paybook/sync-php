@@ -19,6 +19,7 @@ class Transaction extends Paybook
         $this->amount = array_key_exists('amount', $transaction_array) ? $transaction_array['amount'] : '';
         $this->dt_transaction = array_key_exists('dt_transaction', $transaction_array) ? $transaction_array['dt_transaction'] : '';
         $this->dt_refresh = array_key_exists('dt_refresh', $transaction_array) ? $transaction_array['dt_refresh'] : '';
+        $this->attachments = array_key_exists('attachments', $transaction_array) ? $transaction_array['attachments'] : [];
     }//End of __construct
 
     public static function get($session = null, $id_user = null, $options = [])
@@ -73,6 +74,7 @@ class Transaction extends Paybook
             'amount' => $this->amount,
             'dt_transaction' => $this->dt_transaction,
             'dt_refresh' => $this->dt_refresh,
+            'attachments' => $this->attachments,
         ];//End of return 
     }//End of get_array
 }//End of Transaction class
