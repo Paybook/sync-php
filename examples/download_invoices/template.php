@@ -6,6 +6,13 @@ $api_key = '';
 $id_user = '';
 $id_credential = '';
 
+function folder_exist($folder)
+{
+    $path = realpath($folder);
+
+    return ($path !== false and is_dir($path)) ? $path : false;
+}
+
 /*
 Inicializa el SDK con tu API key de Sync:
 */
@@ -52,6 +59,13 @@ if (count($attachments) > 0) {
         */
 
         $invoice_example_name = 'factura_ejemplo.xml';
+
+        if (!folder_exist('downloads')) {
+            mkdir('downloads');
+        }//End of if
+        if (!folder_exist('downloads/example')) {
+            mkdir('downloads/example');
+        }//End of if
 
         $xml_file = fopen('downloads/example/'.$attachment->file, 'w') or die('No se pudo guardar archivo '.$attachment->file);
         fwrite($xml_file, $attachment_content);

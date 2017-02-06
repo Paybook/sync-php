@@ -7,6 +7,7 @@ vendor
 example.php
 composer.lock
 *.xml
+*.pdf
 
 /logs/*
 !/logs/empty

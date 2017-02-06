@@ -16,6 +16,13 @@ $ATTACHMENTS = null;
 $BAR_LEN = 75;
 $DOWNLOAD_LIMIT = 15;
 
+function folder_exist($folder)
+{
+    $path = realpath($folder);
+
+    return ($path !== false and is_dir($path)) ? $path : false;
+}//End of folder_exist
+
 function waiting_message($time, $message = '', $indent = 0)
 {
     global $INDENT;
@@ -429,6 +436,12 @@ function go_to_step($step_number, $second_try = false)
                     $url = $attachment->url;
                     $id_attachment = substr($url, 1, strlen($url));
                     $attachment_content = paybook\Attachment::get($SESSION, null, $id_attachment);
+                    if (!folder_exist('downloads')) {
+                        mkdir('downloads');
+                    }//End of if
+                    if (!folder_exist('downloads/wizard')) {
+                        mkdir('downloads/wizard');
+                    }//End of if
                     $xml_file = fopen('downloads/wizard/'.$attachment->file, 'w') or die('No se pudo guardar archivo '.$attachment->file);
                     fwrite($xml_file, $attachment_content);
                     fclose($xml_file);
