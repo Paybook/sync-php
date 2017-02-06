@@ -1,18 +1,24 @@
-
-
+     
 # Descarga de Facturas
 
-Este es un ejemplo de como descargar facturas haciendo uso de Sync y de la librería de Sync para PHP.
+Este es un ejemplo de cómo descargar facturas haciendo uso de Sync y de la librería de Sync para PHP.
 
 ### Requerimientos
 
-1. [PHP](http://php.net/) (versión recomendada posterior o igual a 5.6.X)
-2. [Composer](https://getcomposer.org/doc/00-intro.md)
-3. Un API key de Paybook Sync.
+- [PHP](http://php.net/) (versión recomendada posterior o igual a 5.6.X)
+- [Composer](https://getcomposer.org/doc/00-intro.md)
+- Un [API key de Paybook Sync](https://www.paybook.com/signup/es).
 
-### Asistente/Wizard para descarga de facturas
+### Contenido
 
-Este proyecto contiene un asistente que se ejecutará en la terminal. Éste nos ayudará a comunicarnos con Sync para la descarga de facturas y al final nos generará un *script* personalizado donde nos va a mostrar paso a paso como descargar las facturas haciendo uso de la librería de Sync para PHP.
+1. [Asistente/Wizard para descarga de facturas](#download_invoices_wizard)
+2. [Script ejemplo para descarga de facturas](#download_invoices_example)
+
+<div id='download_invoices_wizard'/>
+
+##### 1. Asistente/Wizard para descarga de facturas
+
+Este proyecto contiene un asistente que se ejecutará en la terminal. Éste nos ayudará a comunicarnos con Sync para la descarga de facturas y al final nos generará un *script* personalizado donde nos va a mostrar paso a paso cómo descargar las facturas haciendo uso de la librería de Sync para PHP.
 
 1. Si no has clonado este repositorio en tu maquina primero hay que clonarlo:
 
@@ -34,17 +40,24 @@ Este proyecto contiene un asistente que se ejecutará en la terminal. Éste nos 
 	
 		php wizard.php
 
-5. Introduce la información que el wizard/asistente solicita. El asistente te llevará paso a paso y te pedirá la información necesaria para la descarga de facturas.
+5. Introduce la información que el wizard/asistente solicita. El asistente te llevará paso a paso y te pedirá la información necesaria para la descarga de facturas. El *Wizard* se observará de la siguiente manera:
 
-### Script ejemplo para descarga de facturas
+<p align="center"><img src="https://github.com/Paybook/sync-php/blob/master/examples/download_invoices/wizard.png" width="380" height="150"></p>
 
-Una vez que has ejecutado el *Wizard*, éste te habrá generado un archivo:
+<div id='download_invoices_example'/>
+
+##### 2. Script ejemplo para descarga de facturas
+
+Una vez que has ejecutado el *Wizard*, éste te habrá generado un archivo *example.php*. Ahora puedes correr este *script*:
+		
+	php example.php		
 	
-	example.php
+Verás un mensaje como el siguiente:
 	
-Este archivo es un ejemplo de como descargar las facturas haciendo uso de Sync y de su librería para PHP.
-
-Es imporante notar qué este script:
+	Archivo 65B537C5314247768610C5EF455DF6A4.xml descargado exitósamente. El archivo fue guardado en: 
+	-> <path_to_sync-php>/examples/download_invoices/downloads/example/<some_uuid>.xml
+   
+El archivo *example.php* es un ejemplo en PHP de cómo descargar las facturas haciendo uso de la librería de Sync para PHP. Es imporante notar qué este script:
 	
 - hace uso del API key con el que ejecutaste el *Wizard*
 - hace uso del usuario con el que ejecutaste el *Wizard*
