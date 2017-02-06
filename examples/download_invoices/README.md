@@ -48,7 +48,7 @@ Este proyecto contiene un asistente que se ejecutará en la terminal. Éste nos 
 
 		<path_to_sync-php>/examples/download_invoices/downloads/wizard/
 	
-	**Importante: ** esta asistente únicamente descargará 15 facturas.
+	**Importante:** esta asistente únicamente descargará 15 facturas.
 	
 <div id='download_invoices_example'/>
 
