@@ -6,6 +6,7 @@ script.php
 vendor
 example.php
 composer.lock
+*.xml
 
 /logs/*
 !/logs/empty
