@@ -8,6 +8,7 @@ Este es un ejemplo de cómo descargar facturas haciendo uso de Sync y de la libr
 - [PHP](http://php.net/) (versión recomendada posterior o igual a 5.6.X)
 - [Composer](https://getcomposer.org/doc/00-intro.md)
 - Un [API key de Paybook Sync](https://www.paybook.com/signup/es).
+- Un RFC y una contraseña del SAT (antes CIEC)
 
 ### Contenido
 
@@ -30,7 +31,7 @@ Este proyecto contiene un asistente que se ejecutará en la terminal. Éste nos 
 	
 	Dentro del directorio debes observar el siguiente contenido:
 		
-		README.md	composer.json	template.php    wizard.php
+		README.md	composer.json	template.php	wizard.php	wizard.png
 
 3. Instala la librería de Sync para PHP haciendo uso de *composer*:
 	
