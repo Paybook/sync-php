@@ -42,7 +42,7 @@ Este proyecto contiene un asistente que se ejecutará en la terminal. Éste nos 
 
 5. Introduce la información que el wizard/asistente solicita. El asistente te llevará paso a paso y te pedirá la información necesaria para la descarga de facturas. El *Wizard* se observará de la siguiente manera:
 
-<p align="center"><img src="https://github.com/Paybook/sync-php/blob/master/examples/download_invoices/wizard.png" width="380" height="150"></p>
+<p align="center"><img src="https://github.com/Paybook/sync-php/blob/master/examples/download_invoices/wizard.png"></p>
 
 <div id='download_invoices_example'/>
 
