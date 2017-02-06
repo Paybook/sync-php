@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<cfdi:Comprobante version="3.2" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" serie="AD" folio="151389" fecha="2016-01-15T10:52:42" sello="OBmHW18MIbfr2sZXPGBvMSoe0fneXC4IeHQo25dKvK2rYX2qOzOCF/nJXI3+7KbiYlyb3OrnSmJwd5L/A4U/kz35VUeJe+qAePNs1sj+XIZyatT0ti6c3jPN+eIPf5gistUvQm3NGFB3rMFPCRYRGOYzuQcs4t6JXdOsO6xGnYw=" formaDePago="Pago en una sola exhibicion" noCertificado="00001000000202739128" certificado="MIIEgzCCA2ugAwIBAgIUMDAwMDEwMDAwMDAyMDI3MzkxMjgwDQYJKoZIhvcNAQEFBQAwggGVMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMSEwHwYJKoZIhvcNAQkBFhJhc2lzbmV0QHNhdC5nb2IubXgxJjAkBgNVBAkMHUF2LiBIaWRhbGdvIDc3LCBDb2wuIEd1ZXJyZXJvMQ4wDAYDVQQRDAUwNjMwMDELMAkGA1UEBhMCTVgxGTAXBgNVBAgMEERpc3RyaXRvIEZlZGVyYWwxFDASBgNVBAcMC0N1YXVodMOpbW9jMRUwEwYDVQQtEwxTQVQ5NzA3MDFOTjMxPjA8BgkqhkiG9w0BCQIML1Jlc3BvbnNhYmxlOiBDZWNpbGlhIEd1aWxsZXJtaW5hIEdhcmPDrWEgR3VlcnJhMB4XDTEzMDEwNzE2MDYyMFoXDTE3MDEwNzE2MDYyMFowgcQxIjAgBgNVBAMTGUNPTUlTSU9OIEVTVEFUQUwgREUgQUdVQVMxIjAgBgNVBCkTGUNPTUlTSU9OIEVTVEFUQUwgREUgQUdVQVMxIjAgBgNVBAoTGUNPTUlTSU9OIEVTVEFUQUwgREUgQUdVQVMxJTAjBgNVBC0THENFQTgwMDMxM0M5NSAvIE1FREw3MDA3MzBDTTUxHjAcBgNVBAUTFSAvIE1FREw3MDA3MzBNSkNOUkwwNzEPMA0GA1UECxMGTWF0cml6MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDadMfCtgrdSwNGwuhoYMXXtM5c8XTJzn1+MKvCoHvw39GQhhlkEdOkcubd6zsF0B3R5IlOU3Fr2R5xQSvpq0ngbJjyiJ4gPsdq6Ej2KTRoSsbrjrAdnDgF1TbPrrrnsCQ4sVLn4JYA1IHWQG3aUGwofnmQZMQQi52x7PS9oRUdnwIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAYJqva71hv1FEmFbZQO2MjOkTSduxV6VNWaC0q/I1IAntGEbyAY6CQiA2YTO29UD5H9JiQyv09lVbqZyjkvb37JgK8oWw2VBGHOF8/Kj23v0K+w7W6K5JlAWAF5FcBbWgblj4yFADqeptQjK8Y6NZPYgNZq8Hq6Y/lO34f3Ux2xUJgauik80WKlPWZ83sy0awVpv8hB6Nz5QqyCkKO+YKrCFhpVDPepmvejhCgwVm6GS4yNli/mcL/seF2uSyijMxidg3TgQ4c+aJgXVGV2+Qw4Kf4imPB3b8XN3gs8SonVNgTmkE1w2I8l2SwjsoxlMnH0fRUJPev2K6ILz4+OWhrg==" subTotal="4267.31" TipoCambio="1.0000" Moneda="MXN" total="4472.70" metodoDePago="Tarj. D?bito HSBC" tipoDeComprobante="ingreso" LugarExpedicion="Santiago de Quer?taro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cfdi="http://www.sat.gob.mx/cfd/3">
+<cfdi:Emisor rfc="CEA800313C95" nombre="COMISION ESTATAL DE AGUAS">
+<cfdi:DomicilioFiscal calle="Av. 5 de Febrero" noExterior="35" colonia="Las Campanas" referencia="Tel. (442) 211-0600 Fax (442) 216 -4103" municipio="Santiago de Quer?taro" estado="Quer?taro" pais="M?xico" codigoPostal="76010" />
+<cfdi:RegimenFiscal Regimen="Fines no lucrativos" />
+</cfdi:Emisor>
+<cfdi:Receptor rfc="OOCJ5605273G6" nombre="OCHOA CABELLO J. TRINIDAD">
+<cfdi:Domicilio calle="MARQUES VILLA DEL VILLAR DEL AGUILA" noExterior="956" colonia="EL CAMPANARIO" municipio="QUERETARO" estado="QUERETARO" pais="MEXICO" codigoPostal="76148" />
+</cfdi:Receptor>
+<cfdi:Conceptos>
+<cfdi:Concepto cantidad="1" unidad="SER" noIdentificacion="01" descripcion="Servicio Integral de Agua Potable" valorUnitario="492.60" importe="492.60" />
+<cfdi:Concepto cantidad="1" unidad="SER" noIdentificacion="16" descripcion="Cargo por redondeo" valorUnitario="0.91" importe="0.91" />
+<cfdi:Concepto cantidad="1" unidad="SER" noIdentificacion="18" descripcion="Cr?dito por redondeo siguiente recibo" valorUnitario="-0.71" importe="-0.71" />
+<cfdi:Concepto cantidad="1" unidad="SER" noIdentificacion="22" descripcion="Derechos de Conexion a la Red de Agua" valorUnitario="684.09" importe="684.09" />
+<cfdi:Concepto cantidad="1" unidad="SER" noIdentificacion="23" descripcion="Derechos de Conexion a la Red de Drenaje" valorUnitario="485.96" importe="485.96" />
+<cfdi:Concepto cantidad="1" unidad="SER" noIdentificacion="24" descripcion="Derechos de Contrataci?n" valorUnitario="34.10" importe="34.10" />
+<cfdi:Concepto cantidad="1" unidad="SER" noIdentificacion="21" descripcion="Derechos de Infraestructura Red de Agua" valorUnitario="2466.92" importe="2466.92" />
+<cfdi:Concepto cantidad="1" unidad="PZA" noIdentificacion="26" descripcion="Medidor" valorUnitario="79.46" importe="79.46" />
+<cfdi:Concepto cantidad="1" unidad="SER" noIdentificacion="19" descripcion="Recargos" valorUnitario="23.98" importe="23.98" />
+</cfdi:Conceptos>
+<cfdi:Impuestos totalImpuestosTrasladados="205.39">
+<cfdi:Traslados>
+<cfdi:Traslado impuesto="IVA" tasa="16.00" importe="205.39" />
+</cfdi:Traslados>
+</cfdi:Impuestos>
+<cfdi:Complemento>
+<tfd:TimbreFiscalDigital FechaTimbrado="2016-01-15T11:07:29" UUID="AD9C3450-7747-6647-15CA-A61A043EB4DA" noCertificadoSAT="00001000000202771790" selloCFD="OBmHW18MIbfr2sZXPGBvMSoe0fneXC4IeHQo25dKvK2rYX2qOzOCF/nJXI3+7KbiYlyb3OrnSmJwd5L/A4U/kz35VUeJe+qAePNs1sj+XIZyatT0ti6c3jPN+eIPf5gistUvQm3NGFB3rMFPCRYRGOYzuQcs4t6JXdOsO6xGnYw=" selloSAT="TauBVtp0KBrNRWQkg65sfg3TAFqC2xZtEnV4aVFwf9AUGlgXNocPGB38t+g0CXAktOqvCnH4JmrJnyTH4zu42nc1uPb6pZt1N817H1fzzLeKUaQcccCrmIOALWM0P77q7EbdOX15NoMPymGDjSNpsVzugen3aAbXqjiL99cSRL8=" version="1.0" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" />
+</cfdi:Complemento>
+</cfdi:Comprobante>

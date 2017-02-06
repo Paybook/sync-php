@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:registrofiscal="http://www.sat.gob.mx/registrofiscal" xmlns:donat="http://www.sat.gob.mx/donat" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.2" fecha="2015-11-30T21:42:36Z" sello="lZV5Yv8cBzLUri2xDUAE+ec/mz+AsdRkuJizNkElaAeXWhQj4R1jaODGRAxnbQEQTHr5NOJJc9/nPz9DGRD/bhvliFGfYMwl0FWtvqq2sjL2cdaQuEQ7cpiPqURz54ez1SfNYRsHOXY6g1NTMAaNBVLonXi2Vl90Vi8Pg5ukf9w=" formaDePago="Pago en una sola exhibici?n" noCertificado="00001000000201748120" certificado="MIIEtjCCA56gAwIBAgIUMDAwMDEwMDAwMDAyMDE3NDgxMjAwDQYJKoZIhvcNAQEFBQAwggGVMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMSEwHwYJKoZIhvcNAQkBFhJhc2lzbmV0QHNhdC5nb2IubXgxJjAkBgNVBAkMHUF2LiBIaWRhbGdvIDc3LCBDb2wuIEd1ZXJyZXJvMQ4wDAYDVQQRDAUwNjMwMDELMAkGA1UEBhMCTVgxGTAXBgNVBAgMEERpc3RyaXRvIEZlZGVyYWwxFDASBgNVBAcMC0N1YXVodMOpbW9jMRUwEwYDVQQtEwxTQVQ5NzA3MDFOTjMxPjA8BgkqhkiG9w0BCQIML1Jlc3BvbnNhYmxlOiBDZWNpbGlhIEd1aWxsZXJtaW5hIEdhcmPDrWEgR3VlcnJhMB4XDTEyMDgxNDE2MTEyM1oXDTE2MDgxNDE2MTEyM1owgfcxLjAsBgNVBAMTJVNFUlZJQ0lPIERFIEFETUlOSVNUUkFDSU9OIFRSSUJVVEFSSUExLjAsBgNVBCkTJVNFUlZJQ0lPIERFIEFETUlOSVNUUkFDSU9OIFRSSUJVVEFSSUExLjAsBgNVBAoTJVNFUlZJQ0lPIERFIEFETUlOSVNUUkFDSU9OIFRSSUJVVEFSSUExJTAjBgNVBC0THFNBVDk3MDcwMU5OMyAvIEdBVEY3MzAzMjFHRzUxHjAcBgNVBAUTFSAvIEdBVEY3MzAzMjFISkNSUlIwMTEeMBwGA1UECxMVTUVHQVBBQ1NBVDk3MDcwMU5OMzAxMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDU92FpziiFacioI6EwS5tOzGkH8PeT4r6AhhRbTSteRgka8KKitcvcxJ2h8jEwVqr7eh/ayBIR0cpI87MeEOOD2TCsB8QPRD9Pv7LcGan6ZDo/+jC9oMRHnahho+Sz/Dfsi4XON9oN9U+tgHDc/04tTtOic+mPjti9wPzjGEPQaQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEAqPNQhHUJUga811WmXMm7ODvLm0j00Aq0bAJNw8fz8v/+4YBXOmkTRYLyHarLAxEMnAp/UQzK/wBgoKoStha+5LKvYVIacRrJer0W7tdpSA3+SFfOrpR5dTuAdeeQbcRNOh5hUBlatSwGcWAdxcfIAx6C8MY2OIEbbICDiqGqhX3ig43Zz4GHIQFtu4fCW19YBPsem4ZAJY7cS8gF8RZdpFhpLgYh/a0LMM443nCbj6VQEzWR+9LVgEp9IeUXDkzpS+pFhDgZkjJQ3NM4GIa8Aaxw/tOTs7l/AAvBgsncdRBpLRG/45Xvk+YjDPBid80tCOt+fJxjM+vdP+9zzmAE/w==" subTotal="3180.37" total="3031.95" tipoDeComprobante="ingreso" metodoDePago="Cheque" LugarExpedicion="Mexico" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd http://www.sat.gob.mx/registrofiscal http://www.sat.gob.mx/sitio_internet/cfd/cfdiregistrofiscal/cfdiregistrofiscal.xsd http://www.sat.gob.mx/donat http://www.sat.gob.mx/sitio_internet/cfd/donat/donat11.xsd">
+  <cfdi:Emisor rfc="OOHH920112ST9">
+    <cfdi:RegimenFiscal Regimen="R?gimen de las Personas F?sicas con Actividades Empresariales y Profesionales" />
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="CTA0906187A2" />
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1" unidad="venta/servicio" descripcion="HONORARIOS DEL MES DE NOVIEMBRE EL IMPORTE NETO 3000 INCLUYE EL 1 POR CIENTO DE RETENCI?N CEDULAR Y SON 31.95" valorUnitario="3180.37" importe="3180.37" />
+  </cfdi:Conceptos>
+  <cfdi:Impuestos>
+    <cfdi:Retenciones>
+      <cfdi:Retencion impuesto="IVA" importe="339.24" />
+      <cfdi:Retencion impuesto="ISR" importe="318.04" />
+    </cfdi:Retenciones>
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16.00" importe="508.86" />
+      <cfdi:Traslado impuesto="IEPS" tasa="0.00" importe="0.00" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <registrofiscal:CFDIRegistroFiscal Version="1.0" Folio="1511000035448708" />
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="AAA1A80C-CC02-461F-A458-23CE5E03E00C" FechaTimbrado="2015-11-30T21:42:40" selloCFD="lZV5Yv8cBzLUri2xDUAE+ec/mz+AsdRkuJizNkElaAeXWhQj4R1jaODGRAxnbQEQTHr5NOJJc9/nPz9DGRD/bhvliFGfYMwl0FWtvqq2sjL2cdaQuEQ7cpiPqURz54ez1SfNYRsHOXY6g1NTMAaNBVLonXi2Vl90Vi8Pg5ukf9w=" noCertificadoSAT="00001000000201748120" selloSAT="x75VJpboOtpo6Nq+tcNpiJkLT+DQUPndV8CgCs8xEYCwklVoecpeBtLOusTWKqm1DVPiNhoPr3ChNaTlu71aiFFxuB7J6fsGfIwMEsJO7zDnGMrhnOuUiwi7QMuwXMDmrerL0h3BOOAdrgp3hSv7aj8gDFa0qO6vQoFuGV0lbcg=" />
+  </cfdi:Complemento>
+</cfdi:Comprobante>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<cfdi:Comprobante version="3.2" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd" serie="BFABP" folio="1927404" fecha="2016-01-29T14:12:45" sello="A6jE7YS+MggQCHd8rEeSeJ/24gXvhDcVmm3LsEr7lWfn8u04tooM5sYKo8L0dxui7I/ZSqwF8vyvw0uw3zXV77xqmeSt/aDvAs9UmbwVpn6VvV7aE+RjI7stseFcbMVduCZtz3GS8AFwXVd1GNdkK+57CEGOAsMSMsRxZV1O5hc=" formaDePago="PAGO EN UNA SOLA EXHIBICI?N" noCertificado="00001000000300778356" certificado="MIIEkjCCA3qgAwIBAgIUMDAwMDEwMDAwMDAzMDA3NzgzNTYwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzA5MDMxNTU4MDVaFw0xNzA5MDMxNTU4MDVaMIHeMSgwJgYDVQQDEx9BVVRPQlVTRVMgREUgTEEgUElFREFEIFNBIERFIENWMSgwJgYDVQQpEx9BVVRPQlVTRVMgREUgTEEgUElFREFEIFNBIERFIENWMSgwJgYDVQQKEx9BVVRPQlVTRVMgREUgTEEgUElFREFEIFNBIERFIENWMSUwIwYDVQQtExxBUEk2NjA5MjczRTAgLyBWRVNDNjcwNzE2N1oxMR4wHAYDVQQFExUgLyBWRVNDNjcwNzE2TUdUR05SMTAxFzAVBgNVBAsTDkNGRElNQVRSSVpMRU9OMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCAnawGuOF2G5NjSHICd/WwL3t2ifF3FVx/4me2lNiMurYQaLP0pq9EB4NY8aMXsi70pG51/SMWLSDYZsWQMsFfbl2cMjtulG23kuhwKhf5jw2IoWJOFdlVTfD7nUu9rTHcJ+TaHxDfq84F6IcNQPQaO/lbm02mHdevDjZ+mZUpeQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEADQtUsv1HEV0wBglvJloIXKbpK7utLCjEcEog0a5l631H1gwqka48BOVbEnBahd1y4g+C8zc1jM9LUhqAk6cH5xSUU8sIWS0q8brRohjIDxAcAaY4calMBTiICOQ8RGXJ1mI8/4IZkc31B1+VyQIwsRONZg7fQdL6AiDdKhbNI+MSEY2BrhaR4UYtAuded4hWBdWN6jW+S4yVE+VaNYktPtBIPSNS2iwL1FdIOoz5MedijpmbG+bBIqFL+R6OMIOnyj9qd9mszUee98tanNk/Wwjq2hkZV48zTVCfZXkxWyhLHkDubYM+JmlI+Hz1SR1hq6a63+iQ+4irut4/S1/Frg==" subTotal="36.21" TipoCambio="1.0000" Moneda="MXN" total="42" metodoDePago="EFECTIVO" tipoDeComprobante="ingreso" LugarExpedicion="LEON, Guanajuato" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cfdi="http://www.sat.gob.mx/cfd/3">
+<cfdi:Emisor rfc="API6609273E0" nombre="AUTOBUSES DE LA PIEDAD SA DE CV">
+<cfdi:DomicilioFiscal calle="BLVD. LA LUZ" noExterior="2011" colonia="COL. LAS FUENTES" municipio="LEON" estado="Guanajuato" pais="M?xico" codigoPostal="37270" />
+<cfdi:RegimenFiscal Regimen="FISCAL: DE LOS COORDINADOS" />
+</cfdi:Emisor>
+<cfdi:Receptor rfc="OOHH920112ST9" nombre="HUGO ENRIQUE OCHOA HEREDIA">
+<cfdi:Domicilio calle="VILLAR DEL ?GUILA" noExterior="956" colonia="MIRADOR EL CAMPANARIO" municipio="QUERETARO" estado="QUERETARO" pais="M?XICO" codigoPostal="76146" />
+</cfdi:Receptor>
+<cfdi:Conceptos>
+<cfdi:Concepto cantidad="1" unidad="NO APLICA" noIdentificacion="114214440497575" descripcion="SERVICIO DE TRANSPORTE DE SERVICIO ECONOMICO APAG-QRO 28/01/2016 COMPLETO, . VTA REALIZADA EN APASEO EL GRANDE GUANAJUATO, Venustiano Carranza Terminal No. , Centro C.P. 38160" valorUnitario="36.21" importe="36.21" />
+</cfdi:Conceptos>
+<cfdi:Impuestos totalImpuestosRetenidos="0" totalImpuestosTrasladados="5.79">
+<cfdi:Traslados>
+<cfdi:Traslado impuesto="IVA" tasa="16" importe="5.79" />
+</cfdi:Traslados>
+</cfdi:Impuestos>
+<cfdi:Complemento>
+<tfd:TimbreFiscalDigital FechaTimbrado="2016-01-29T14:13:32" UUID="DF5992A9-5B4C-8758-5D71-777C48E2EE5A" noCertificadoSAT="00001000000202771790" selloCFD="A6jE7YS+MggQCHd8rEeSeJ/24gXvhDcVmm3LsEr7lWfn8u04tooM5sYKo8L0dxui7I/ZSqwF8vyvw0uw3zXV77xqmeSt/aDvAs9UmbwVpn6VvV7aE+RjI7stseFcbMVduCZtz3GS8AFwXVd1GNdkK+57CEGOAsMSMsRxZV1O5hc=" selloSAT="fhMp6kQXCR8G4a7vqj8oC+JZS0vT7Ro+UBFRblYKRsOYNuD7dQH4qsXTow6HFs211gOilZjpX28iHhYOm/MQGUYsij0cb471MA9gzQySE/vF9WOea8WzuyaNYlERPeehlEpPOCnEsTUVfBtCE8L740H2wzrziTLV5PReTG4nTnU=" version="1.0" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" />
+</cfdi:Complemento>
+</cfdi:Comprobante>

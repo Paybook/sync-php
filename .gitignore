@@ -3,5 +3,9 @@
 .project
 script.php
 
+vendor
+example.php
+composer.lock
+
 /logs/*
 !/logs/empty

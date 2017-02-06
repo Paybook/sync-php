@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:implocal="http://www.sat.gob.mx/implocal" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd http://www.sat.gob.mx/implocal http://www.sat.gob.mx/sitio_internet/cfd/implocal/implocal.xsd http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/TimbreFiscalDigital/TimbreFiscalDigital.xsd " version="3.2" serie="B" folio="8787" fecha="2016-01-01T12:35:44" sello="COaitvH4X34oI5rEhMTdXT5ih3uRKi4nxhNoERtDaSygmvuq1RNEeFT+gAd6phAudO8RyB9eNHyv5sQ4G20lldKMxoNJQT/uOOe95SFx7vrrjHF87CJD+OlGJMsuU81JffFCHvZ99Vc78xdrEwPNLcmO8pi7fCr3zWiGsCvNQd8=" formaDePago="Pago en una sola exhibicion" noCertificado="00001000000202502876" certificado="MIIEoDCCA4igAwIBAgIUMDAwMDEwMDAwMDAyMDI1MDI4NzYwDQYJKoZIhvcNAQEFBQAwggGVMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMSEwHwYJKoZIhvcNAQkBFhJhc2lzbmV0QHNhdC5nb2IubXgxJjAkBgNVBAkMHUF2LiBIaWRhbGdvIDc3LCBDb2wuIEd1ZXJyZXJvMQ4wDAYDVQQRDAUwNjMwMDELMAkGA1UEBhMCTVgxGTAXBgNVBAgMEERpc3RyaXRvIEZlZGVyYWwxFDASBgNVBAcMC0N1YXVodMOpbW9jMRUwEwYDVQQtEwxTQVQ5NzA3MDFOTjMxPjA8BgkqhkiG9w0BCQIML1Jlc3BvbnNhYmxlOiBDZWNpbGlhIEd1aWxsZXJtaW5hIEdhcmPDrWEgR3VlcnJhMB4XDTEyMTIwNDE3MTQ0OFoXDTE2MTIwNDE3MTQ0OFowgeExLTArBgNVBAMTJE9QRVJBRE9SQSBERSBIT1RFTEVTIERBTUFHTyBTQSBERSBDVjEtMCsGA1UEKRMkT1BFUkFET1JBIERFIEhPVEVMRVMgREFNQUdPIFNBIERFIENWMS0wKwYDVQQKEyRPUEVSQURPUkEgREUgSE9URUxFUyBEQU1BR08gU0EgREUgQ1YxJTAjBgNVBC0THE9IRDkxMTIzMU00QSAvIE1BU1A3MjA5Mjg1SjgxHjAcBgNVBAUTFSAvIE1BU1A3MjA5MjhISkNMUlMwMDELMAkGA1UECxMCQzowgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALh610BECMJfeS7hoRDJbAVZLASn3Fx5o1LK/S+YzWXicBanbzf/2PayRDygetz3XdrVAoaak70Ue+I1H6HmhkVmaLxd2syC2fSW8+pWGLoZQnnOiI1haoV7sfzQGwmhrTTh9Vkc+C4GC/BiyTSpu1NdlNU2jLBv9fjhSgmyAFn3AgMBAAGjHTAbMAwGA1UdEwEB/wQCMAAwCwYDVR0PBAQDAgbAMA0GCSqGSIb3DQEBBQUAA4IBAQAWc35Yg7pOCWgljeByaquZJ4vQMASABAD4E4o1o+DK4R65QIo38o8xF4oWibNkp4KMpLWyjKTJw/LTQA5B3Aj5TyIGZlluLMt4SurGWJU24LRRZwwP9B0iJPVWyJTpTfM6884kMRhZUDs937cTfrHODrJ3MbjaBUt0moIQ9+m7q8rac0wEPK6vbYcyCeJl64fQD7q9gWh0J518tlKYva//Xpf2bybJtONuvQCb+T0HpHjj/EsLZkXihbFxnktoLNfB6/FLnbvbkb7EDA7PUZ1xvfuaiFhyFdCUwKQKJ6nRaROxLaNZXCQbbvh8FqmXe2MRaxNFDaw0qiVcF88vYlCI" subTotal="306.83" descuento="0.00" total="365.00" tipoDeComprobante="ingreso" metodoDePago="EFECTIVO" LugarExpedicion="LAGOS DE MORENO">
+    <cfdi:Emisor rfc="OHD911231M4A" nombre="OPERADORA DE HOTELES DAMAGO, S.A. DE C.V.">
+      <cfdi:DomicilioFiscal calle="BLVD.OROZCO Y JIMENEZ" noExterior="230" colonia="COLONIA ALCALDES" municipio="LAGOS DE MORENO" estado="JALISCO" pais="MEXICO" codigoPostal="47470" />
+      <cfdi:ExpedidoEn calle="BLVD.OROZCO Y JIMENEZ" noExterior="216" colonia="ALCALDES" municipio="LAGOS DE MORENO" estado="JALISCO" pais="MEXICO" codigoPostal="47470" />
+      <cfdi:RegimenFiscal Regimen="REGIMEN GENERAL DE LEY DE PERSONA MORAL" />
+    </cfdi:Emisor>
+    <cfdi:Receptor rfc="OOCJ5605273G6" nombre="JESUS OCHOA CEBALLOS">
+      <cfdi:Domicilio calle="VILLA DEL VILLAR DEL AGUILA # 956" colonia="CAMPANARIO" municipio="QUERETARO" estado="QUERETARO" pais="MEXICO" codigoPostal="76146" />
+    </cfdi:Receptor>
+    <cfdi:Conceptos>
+      <cfdi:Concepto cantidad="1.00" unidad="NO APLICA" descripcion="HOSPEDAJE - LODGING" valorUnitario="302.52" importe="302.52" />
+      <cfdi:Concepto cantidad="1.00" unidad="NO APLICA" descripcion="ESTACIONAMIENTO" valorUnitario="4.31" importe="4.31" />
+    </cfdi:Conceptos>
+    <cfdi:Impuestos totalImpuestosTrasladados="49.09">
+      <cfdi:Traslados>
+        <cfdi:Traslado impuesto="IVA" tasa="16.00" importe="49.09" />
+      </cfdi:Traslados>
+    </cfdi:Impuestos>
+    <cfdi:Complemento>
+      <implocal:ImpuestosLocales version="1.0" TotaldeRetenciones="0" TotaldeTraslados="9.08">
+        <implocal:TrasladosLocales ImpLocTrasladado="ISH" TasadeTraslado="3.00" Importe="9.08" />
+      </implocal:ImpuestosLocales>
+    <tfd:TimbreFiscalDigital xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" version="1.0" UUID="333C4A49-34E1-40A9-883E-AB6E6ED3633C" FechaTimbrado="2016-01-01T12:36:06" selloCFD="COaitvH4X34oI5rEhMTdXT5ih3uRKi4nxhNoERtDaSygmvuq1RNEeFT+gAd6phAudO8RyB9eNHyv5sQ4G20lldKMxoNJQT/uOOe95SFx7vrrjHF87CJD+OlGJMsuU81JffFCHvZ99Vc78xdrEwPNLcmO8pi7fCr3zWiGsCvNQd8=" noCertificadoSAT="00001000000202639096" selloSAT="Pk92a+VqgiPDtH6x4xT/rvr4SEKYbXeaCDD5+l/HM96cxAavBUyeOc9qrDD58YOh0xAa7sD57ijTxKG7+dJmMFd9XE+J65ewO0JM0aNmSvnv+8Wl60stKw4J0kb1VKQZoNa5VF1pVAlCkQzpjfLeE4N/6IkUgQ4SrJR6n3iT00o=" /></cfdi:Complemento>
+  </cfdi:Comprobante>
