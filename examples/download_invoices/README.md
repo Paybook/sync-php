@@ -54,7 +54,7 @@ Una vez que has ejecutado el *Wizard*, éste te habrá generado un archivo *exam
 	
 Verás un mensaje como el siguiente:
 	
-	Archivo 65B537C5314247768610C5EF455DF6A4.xml descargado exitósamente. El archivo fue guardado en: 
+	Archivo <some_uuid>.xml descargado exitósamente. El archivo fue guardado en: 
 	-> <path_to_sync-php>/examples/download_invoices/downloads/example/<some_uuid>.xml
    
 El archivo *example.php* es un ejemplo en PHP de cómo descargar las facturas haciendo uso de la librería de Sync para PHP. Es imporante notar qué este script:

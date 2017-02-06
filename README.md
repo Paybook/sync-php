@@ -39,6 +39,8 @@ En caso de que no hayas creado un proyecto nuevo y estés modificando un proyect
 
 Antes de consultar la documentación puedes tomar alguno de nuestros tutoriales:
 
+- [Wizard/Ejemplo para descarga defacturas](https://github.com/Paybook/sync-php/tree/master/examples/download_invoices) **Recomendado si es tu primera vez usando el API de Sync)**
+
 - [Quickstart para sincronizar al SAT](https://github.com/Paybook/sync-php/blob/master/doc/quickstart_sat.md)
 
 - [Quickstart para sincronizar una cuenta bancaria con credenciales sencillas (usuario y contraseña)](https://github.com/Paybook/sync-php/blob/master/doc/quickstart_normal_bank.md)
