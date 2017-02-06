@@ -44,6 +44,12 @@ Este proyecto contiene un asistente que se ejecutará en la terminal. Éste nos 
 
 <p align="center"><img src="https://github.com/Paybook/sync-php/blob/master/examples/download_invoices/wizard.png"></p>
 
+6. Una vez que hayas terminado la ejecución del *Wizard* podrás observar las facturas descargadas (archivos XML) dentro del directorio:
+
+		<path_to_sync-php>/examples/download_invoices/downloads/wizard/
+	
+	**Importante: ** esta asistente únicamente descargará 15 facturas.
+	
 <div id='download_invoices_example'/>
 
 ##### 2. Script ejemplo para descarga de facturas
@@ -62,6 +68,12 @@ El archivo *example.php* es un ejemplo en PHP de cómo descargar las facturas ha
 - hace uso del API key con el que ejecutaste el *Wizard*
 - hace uso del usuario con el que ejecutaste el *Wizard*
 - descarga las transacciones del sitio que hayas sincronizado haciendo uso del *Wizard*
+
+Este ejemplo únicamente te descargará una factura (archivo XML) en el directorio:
+	
+	<path_to_sync-php>/examples/download_invoices/downloads/example/
+
+Te recomendamos abrir el archivo *example.php* para que veas los pasos que tienes que seguir para la descarga de facturas y cómo se realiza la conexión con Sync por medio de la librería de PHP.
 
 Si quieres generar otro archivo ejemplo con otra API key u otro usuario solo basta que ejecutes el asistente nuevamente:
 	
