@@ -60,7 +60,7 @@ Las facturas seran descargadas en la carpeta *downloads* dentro de este mismo di
 
 Aquí estarán todos los archivos pdf y xml descargados.
 
-El script está acotado a descargar a lo más 500 archivos. 
+El script está acotado a descargar a lo más 500 archivos y hace uso de 10 hilos. El valor de los hilos a utilizar lo puede configurar el desarrollador modificando el valor de la variable *$THREADS*.
 
 
 
