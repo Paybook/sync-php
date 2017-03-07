@@ -39,7 +39,7 @@ En caso de que no hayas creado un proyecto nuevo y estés modificando un proyect
 
 Antes de consultar la documentación puedes tomar alguno de nuestros tutoriales:
 
-- [Wizard/Ejemplo para descarga de facturas](https://github.com/Paybook/sync-php/tree/master/examples/download_invoices) **Recomendado si es tu primera vez usando el API de Sync)**
+- [Wizard/Ejemplo para descarga de facturas](https://github.com/Paybook/sync-php/tree/master/examples/download_invoices_wizard) **Recomendado si es tu primera vez usando el API de Sync)**
 
 - [Quickstart para sincronizar al SAT](https://github.com/Paybook/sync-php/blob/master/doc/quickstart_sat.md)
 
