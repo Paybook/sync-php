@@ -33,6 +33,7 @@ Obtiene las transacciones y archivos adjuntos sincronizadas para la credencial e
 */
 $options = [
     'id_credential' => $id_credential,
+    'limit' => 1,
 ];//End of $options
 $transactions = paybook\Transaction::get($session, null, $options);
 $attachments = paybook\Attachment::get($session, null, null, null, $options);

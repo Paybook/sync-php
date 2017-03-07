@@ -14,7 +14,7 @@ $CREDENTIALS = null;
 $TRANSACTIONS = null;
 $ATTACHMENTS = null;
 $BAR_LEN = 75;
-$DOWNLOAD_LIMIT = 15;
+$DOWNLOAD_LIMIT = 10;
 
 function folder_exist($folder)
 {
@@ -397,6 +397,7 @@ function go_to_step($step_number, $second_try = false)
             print_step_separator($step_number);
             $options = [
                 'id_credential' => $CREDENTIALS->id_credential,
+                'limit' => $DOWNLOAD_LIMIT,
             ];//End of $options
             _print('');
             waiting_message(2, 'Obteniendo facturas ... ', 2);
