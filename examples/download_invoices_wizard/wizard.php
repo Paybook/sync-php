@@ -401,12 +401,12 @@ function go_to_step($step_number, $second_try = false)
             ];//End of $options
             _print('');
             waiting_message(2, 'Obteniendo facturas ... ', 2);
-            $TRANSACTIONS = paybook\Transaction::get($SESSION, null, $options);
-            _print('Facturas sincronizadas en total: '.strval(count($TRANSACTIONS)), 2);
+            // $TRANSACTIONS = paybook\Transaction::get($SESSION, null, $options);
+            // _print('Facturas sincronizadas en total: '.strval(count($TRANSACTIONS)), 2);
             $ATTACHMENTS = paybook\Attachment::get($SESSION, null, null, null, $options);
             _print(' ');
-            waiting_message(2, 'Obteniendo archivos adjuntos sincronizados ... ', 2);
-            _print('Archivos adjuntos sincronizados en total: '.strval(count($ATTACHMENTS)), 2);
+            // waiting_message(2, 'Obteniendo archivos adjuntos sincronizados ... ', 2);
+            _print('Archivos de facturas sincronizados en total: '.strval(count($ATTACHMENTS)), 2);
             go_to_step(9);
 
             return;
