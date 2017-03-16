@@ -42,6 +42,8 @@ try {
 
     $options = [
         'id_site_organization' => $SAT_SITE_ORGANIZATION,
+        'dt_transaction_from' => 1485907200, // 1ro de febrero
+        'dt_transaction_to' => 1488326400, // 1ro de marzo
         'limit' => 5,
     ];
 
