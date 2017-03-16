@@ -54,7 +54,7 @@ Puedes observar que las facturas descargadas en formato JSON fueron guardadas en
 
 	facturas.json
 	
-Este script descaga únicamente 5 facturas. Sin embargo, puedes modificarlo para descargar el número de facturas que desees.
+Este script descaga únicamente 5 facturas dentro del periodo comprendido entre el 1 de febrero y 1 de marzo de 2017. Sin embargo, puedes modificarlo para descargar el número de facturas que desees en el periodo de tu elección.
 
 
 
