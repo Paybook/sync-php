@@ -5,6 +5,7 @@ script.php
 
 vendor
 example.php
+facturas.json
 composer.lock
 *.xml
 *.pdf
