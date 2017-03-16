@@ -35,7 +35,7 @@ Una vez hecho esto ejecuta el script:
 	
 	php json_invoices.php
 
-Observarás que en tu CLI lo siguiente:
+Observarás en tu CLI lo siguiente:
 	
 	1. 3992153FCC6C4640AAA289FD8F68D700.xml obtenido
    	2. 38B34374E0724756B796A98C10E76B38.xml obtenido
@@ -50,7 +50,7 @@ Observarás que en tu CLI lo siguiente:
 
  	\0/ Script ejecutado exitósamente. Gracias por usar Sync
 
-Puedes observar que las facturas descargadas en formato JSON fueron guardadas en un archvo en este mismo directorio:
+Puedes observar que las facturas descargadas en formato JSON fueron guardadas en un archivo en este mismo directorio:
 
 	facturas.json
 	
