@@ -1,6 +1,6 @@
 
 
-# Paybook PHP Library Vdev-master
+# Paybook PHP Library V3.0
 
 Esta es la librería de Paybook para PHP. Mediante esta librería usted puede implementar el API REST de Paybook de manera rapida y sencilla a través de sus clases y métodos.
 
