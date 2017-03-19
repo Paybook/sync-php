@@ -73,7 +73,7 @@ class User extends Paybook
         $users = [];
         $params = $options;
         $params['api_key'] = self::$api_key;
-        $user_arrays = self::call($endpcoint = 'users', $method = 'get', $params = $params);
+        $user_arrays = self::call($endpoint = 'users', $method = 'get', $params = $params);
         for ($i = 0; $i < count($user_arrays); ++$i) {
             $user_array = $user_arrays[$i];
             $user = new self($name = null, $id_user = null, $id_external = null, $user_array = $user_array);

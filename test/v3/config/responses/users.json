@@ -1,0 +1,24 @@
+{
+	"fields" : {
+		"name" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_user" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_external" : {
+			"required" : false,
+			"type" : "string"
+		},
+		"dt_create" : {
+			"required" : true,
+			"type" : "integer"
+		},
+		"dt_modify" : {
+			"required" : false,
+			"type" : "integer"
+		}
+	}
+} 

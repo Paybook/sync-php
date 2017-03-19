@@ -1,0 +1,16 @@
+{
+	"fields" : {
+		"id_country" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"name" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"code" : {
+			"required" : true,
+			"type" : "string"
+		}
+	}
+} 

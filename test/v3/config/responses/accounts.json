@@ -1,0 +1,56 @@
+{
+	"fields" : {
+		"id_account" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"account_type" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"extra" : {
+			"required" : false,
+			"type" : "array"
+		},
+		"id_user" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_external" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_credential" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_site" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_site_organization" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"name" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"number" : {
+			"required" : false,
+			"type" : "string"
+		},
+		"balance" : {
+			"required" : true,
+			"type" : "integer"
+		},
+		"site" : {
+			"required" : true,
+			"type" : "array"
+		},
+		"dt_refresh" : {
+			"required" : true,
+			"type" : "integer"
+		}
+	}
+} 

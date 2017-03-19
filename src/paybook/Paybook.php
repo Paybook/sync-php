@@ -7,18 +7,33 @@ use Exception;
 class Paybook
 {
     public static $api_key = null;
-    public static $print_calls = false;
     public static $log = false;
     public static $env_url = false;
     const INDENT = '   ';
     const PAYBOOK_URL = 'https://sync.paybook.com/v1/';
 
-    public static function init($api_key, $print_calls = false, $log = false, $env_url = false)
+    public static function init($api_key_value, $test_init = false)
     {
-        self::$api_key = $api_key;
-        self::$print_calls = $print_calls;//For debugging
-        self::$log = $log;
-        self::$env_url = $env_url;//For debugging in other environment
+        if ($api_key_value === true || $api_key_value === false) {
+            global $TESTING_CONFIG;
+            if ($api_key_value === false) {
+                self::$api_key = 'this_is_an_incorrect_api_key';
+            } else {
+                self::$api_key = $TESTING_CONFIG['api_key'];
+            }//End of if
+            self::$log = $TESTING_CONFIG['log_calls'];
+            self::$env_url = $TESTING_CONFIG['env_url'];//For debugging in other environment 
+            if ($test_init === true) {
+                echo PHP_EOL.PHP_EOL.PHP_EOL;
+                echo '------------------------------------------------------------------'.PHP_EOL.PHP_EOL;
+                echo self::INDENT.'TESTING SYNC LIBRARY CONFIGURATION'.PHP_EOL.PHP_EOL;
+                echo self::INDENT.self::INDENT.'-> Environment:        '.strval(self::$env_url).PHP_EOL;
+                echo self::INDENT.self::INDENT.'-> API Key:            '.strval(self::$api_key).PHP_EOL.PHP_EOL;
+                echo '------------------------------------------------------------------'.PHP_EOL.PHP_EOL;
+            }//End of if
+        } else {
+            self::$api_key = $api_key_value;
+        }//End of if
     }//End of init
 
     public static function get_env()
@@ -30,31 +45,59 @@ class Paybook
         }//End of if 
     }//End of init
 
-    public static function call($endpoint = null, $method = null, $data = null, $params = null, $headers = null, $url = false)
+    public static function call($endpoint = null, $method = null, $data = null, $params = null, $headers = null, $url = false, $test = false)
     {
         if ($url == null) {
             if (self::$env_url == false) {
-                $url = self::PAYBOOK_URL.$endpoint;//By default uses production environment
+                $url = self::PAYBOOK_URL.$endpoint;
             } else {
-                $url = self::$env_url.$endpoint;// It uses the given environment
+                $url = self::$env_url.$endpoint;
             }//End of if
         }//End of if
         $method = strtoupper($method);
-        self::log(self::INDENT.'API Key:        '.strval(self::$api_key), $call = true);
-        self::log(self::INDENT.'Endpoint:       '.strval($url), $call = true);
-        self::log(self::INDENT.'HTTP Method:    '.strval($method), $call = true);
-        // self::log(self::INDENT.'Data:           '.strval($data), $call = true);
-        // self::log(self::INDENT.'Params:         '.strval($params), $call = true);
-        self::log(self::INDENT.'Headers:        '.strval($headers), $call = true);
-        $dataString = '';
-        if ($data) {
-            $dataString = json_encode($data);
-        } elseif ($params) {
-            $dataString = json_encode($params);
+        self::log('');
+        // self::log(self::INDENT.'API Key:                    '.strval(self::$api_key));
+        self::log(self::INDENT.'Endpoint:                   '.strval($url));
+        self::log(self::INDENT.'Overwritten HTTP Method:    '.strval($method));
+        // self::log(self::INDENT.'Data:           '.strval($data));
+        // self::log(self::INDENT.'Params:         '.strval($params));
+        // self::log(self::INDENT.'Headers:        '.strval($headers));
+        if (!is_null($params)) {
+            $data = $params;//Unify data (queryParams) and params (bodyParams)
         }//End of if
+
+        /*
+        Authorization Scheme
+        */
+        $authorization_header = '';
+        if (is_null($data)) {
+            $data = [];
+        }//End of if
+
+        // API KEY
+        if (array_key_exists('api_key', $data) && !array_key_exists('id_user', $data)) {
+            $authorization_header = 'API_KEY api_key='.$data['api_key'];
+            unset($data['api_key']);
+        // API KEY + ID USER
+        } elseif (array_key_exists('api_key', $data) && array_key_exists('id_user', $data)) {
+            $authorization_header = 'API_KEY api_key='.$data['api_key'].', id_user='.$data['id_user'];
+            unset($data['api_key']);
+            unset($data['id_user']);
+        // TOKEN
+        } elseif (array_key_exists('token', $data)) {
+            $authorization_header = 'TOKEN token='.$data['token'];
+            unset($data['token']);
+        }//End of if
+
+        $dataString = json_encode($data);
+
+        self::log(self::INDENT.'Auth:                       '.strval($authorization_header));
+
         $headers = [//Default headers
             'Content-Type: application/json',
             'Content-Length: '.strlen($dataString),
+            'x-http-method-override: '.$method,
+            'Authorization: '.$authorization_header,
         ];//End of $headers
 
         $curl = curl_init();
@@ -65,7 +108,7 @@ class Paybook
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => $method,
+            CURLOPT_CUSTOMREQUEST => 'POST', // V3.0 update, always using POST increases security
             CURLOPT_POSTFIELDS => $dataString,
             CURLOPT_HTTPHEADER => $headers,
             CURLOPT_SSL_VERIFYPEER => false, // Solves windows compatibility
@@ -73,7 +116,7 @@ class Paybook
         ));//End of curl_setopt_array
         $error = curl_error($curl);
         if ($error) {
-            self::log(self::INDENT.'CURL error:        ', $call = true);
+            self::log(self::INDENT.'CURL error:        ');
             print_r($error);
             throw new Error(500, null, 'CURL error', null);
         }//End of if
@@ -81,6 +124,15 @@ class Paybook
         $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         $content_type = curl_getinfo($curl, CURLINFO_CONTENT_TYPE);
         curl_close($curl);
+
+        if ($test == true) {
+            return [
+                'http_code' => $http_code,
+                'content_type' => $content_type,
+                'body' => json_decode($response, true),
+            ];
+        }//End of if
+
         if ($http_code == 200) {
             if (strpos($content_type, 'json') !== false) {
                 $paybookResponse = json_decode($response, true);
@@ -99,9 +151,9 @@ class Paybook
         }//End of if
     }//End of __call
 
-    public static function log($message, $call = false)
+    public static function log($message, $test_init = false)
     {
-        if (($call == true && self::$print_calls) || self::$log == true) {
+        if (self::$log == true || $test_init == true) {
             echo $message.PHP_EOL;
         }//End of if
     }//End of log

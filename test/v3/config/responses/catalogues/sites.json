@@ -1,0 +1,24 @@
+{
+	"fields" : {
+		"id_site" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_site_organization" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_site_organization_type" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"name" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"credentials" : {
+			"required" : true,
+			"type" : "array"
+		}
+	}
+} 

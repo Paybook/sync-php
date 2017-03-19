@@ -1,0 +1,12 @@
+{
+	"fields" : {
+		"id_attachment_type" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"name" : {
+			"required" : true,
+			"type" : "string"
+		}
+	}
+} 

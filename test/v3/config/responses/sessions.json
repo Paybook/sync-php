@@ -1,0 +1,16 @@
+{
+	"fields" : {
+		"token" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"key" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"iv" : {
+			"required" : true,
+			"type" : "string"
+		}
+	}
+} 

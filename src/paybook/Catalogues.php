@@ -160,7 +160,8 @@ class Site
             $credentials_structure = new Credentials_structure($credential_structure_array);
             array_push($credentials_structures, $credentials_structure);
         }//End of foreach
-        $this->credentials = array_key_exists('credentials', $site_array) ? $site_array['credentials'] : '';
+        // $this->credentials = array_key_exists('credentials', $site_array) ? $site_array['credentials'] : '';
+        $this->credentials = $credentials_structures;
         $this->site_array = $site_array;
     }//End of __construct
 

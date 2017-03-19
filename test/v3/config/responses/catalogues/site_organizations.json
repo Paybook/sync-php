@@ -1,0 +1,36 @@
+{
+    "fields" : {
+        "id_site_organization" : {
+            "required" : true,
+            "type" : "string"
+        },
+        "id_site_organization_type" : {
+            "required" : true,
+            "type" : "string"
+        },
+        "name" : {
+            "required" : true,
+            "type" : "string"
+        },
+        "id_country" : {
+            "required" : true,
+            "type" : "string"
+        },
+        "avatar" : {
+            "required" : true,
+            "type" : "string"
+        },
+        "small_cover" : {
+            "required" : true,
+            "type" : "string"
+        },
+        "cover" : {
+            "required" : true,
+            "type" : "string"
+        },
+        "site_organization_array" : {
+            "required" : true,
+            "type" : "array"
+        }
+    }
+}
