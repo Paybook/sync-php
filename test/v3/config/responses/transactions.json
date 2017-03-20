@@ -1,0 +1,60 @@
+{
+	"fields" : {
+		"id_transaction" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_user" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_external" : {
+			"required" : false,
+			"type" : "string"
+		},
+		"id_site" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_site_organization" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_site_organization_type" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_account" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_account_type" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"is_disable" : {
+			"required" : true,
+			"type" : "integer"
+		},
+		"description" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"amount" : {
+			"required" : true,
+			"type" : "integer"
+		},
+		"dt_transaction" : {
+			"required" : true,
+			"type" : "integer"
+		},
+		"dt_refresh" : {
+			"required" : true,
+			"type" : "integer"
+		},
+		"attachments" : {
+			"required" : true,
+			"type" : "array"
+		}
+	}
+}

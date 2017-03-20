@@ -39,6 +39,7 @@ class Credentials extends Paybook
         $this->ws = array_key_exists('ws', $credentials_array) ? $credentials_array['ws'] : null;
         $this->status = array_key_exists('status', $credentials_array) ? $credentials_array['status'] : null;
         $this->twofa = array_key_exists('twofa', $credentials_array) ? $credentials_array['twofa'] : null;
+        $this->keywords = array_key_exists('keywords', $credentials_array) ? $credentials_array['keywords'] : null;
     }//End of __construct
 
     public static function delete($session = null, $id_user = null, $id_credential = null)
@@ -140,4 +141,22 @@ class Credentials extends Paybook
             'username' => $this->username,
         ];//End of return
     }//End of get_array
+
+    public function wait_for_status($session, $status_code)
+    {
+        $wait = false;
+        $got_status = null;
+        while (!$wait) {
+            $status = $this->get_status($session);
+            foreach ($status as $index => $each_status) {
+                $code = $each_status['code'];
+                if ($code == $status_code) {
+                    $wait = true;
+                    $got_status = $each_status;
+                }//End of for
+            }//End of foreach
+            sleep(3);
+        }//End of while 
+        return $got_status;
+    }//End of wait_for_status
 }//End of Credentials class

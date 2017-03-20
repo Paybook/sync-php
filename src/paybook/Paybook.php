@@ -12,7 +12,7 @@ class Paybook
     const INDENT = '   ';
     const PAYBOOK_URL = 'https://sync.paybook.com/v1/';
 
-    public static function init($api_key_value, $test_init = false)
+    public static function init($api_key_value, $test_init = false, $env_url = null)
     {
         if ($api_key_value === true || $api_key_value === false) {
             global $TESTING_CONFIG;
@@ -33,6 +33,9 @@ class Paybook
             }//End of if
         } else {
             self::$api_key = $api_key_value;
+            if (!is_null($env_url)) {
+                self::$env_url = $env_url;
+            }//End of if
         }//End of if
     }//End of init
 

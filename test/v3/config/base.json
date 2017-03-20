@@ -1,7 +1,7 @@
 {
 	"env_url" : "https://syncdev.paybook.com/v1/",
-	"api_key" : "ab620a9b6447ea2c76bfe013dc2c23dc",
-	"id_user" : "58c19b73894321b2258b457e",
+	"api_key" : "d11a036708d64e76b5c689b79ecfbca3",
+	"id_user" : "58b620c689432134398b4576",
 	"log_calls" : false,
 	"src" : true
 }
