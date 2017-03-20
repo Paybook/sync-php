@@ -14,7 +14,7 @@ Important: get transactions calls were executed with temporal filters to avoid b
 
 paybook\Paybook::init(true);
 
-final class CredentialsTest extends TestCase
+final class TransactionsTest extends TestCase
 {
     const TEST_USERNAME = 'php_lib_test_user';
     const FROM = 1483228800;//Jan 1st 2017
