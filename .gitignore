@@ -12,3 +12,8 @@ composer.lock
 
 /logs/*
 !/logs/empty
+
+# Avoid environment config files:
+ci/unit_testing/config/prod.json
+ci/unit_testing/config/dev.json
+

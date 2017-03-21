@@ -1,0 +1,7 @@
+{
+	"env_url" : "<environment_url>",
+	"api_key" : "<environment_api_key>",
+	"id_user" : "<environment_id_user>",
+	"log_calls" : false,
+	"src" : true
+}

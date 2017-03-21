@@ -1,6 +1,6 @@
 <?php
 
-$config_path = __DIR__.'/../../test/v3/config/';
+$config_path = __DIR__.'/config/';
 
 /*
 Load testing config
