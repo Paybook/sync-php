@@ -28,8 +28,8 @@
             "required" : true,
             "type" : "string"
         },
-        "site_organization_array" : {
-            "required" : true,
+        "sites" : {
+            "required" : false,
             "type" : "array"
         }
     }

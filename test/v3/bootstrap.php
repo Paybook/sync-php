@@ -49,6 +49,7 @@ $TESTING_CONFIG['responses']['catalogues']['credentials_structure'] = json_decod
 $TESTING_CONFIG['responses']['catalogues']['site_organizations'] = json_decode(file_get_contents($config_path.'responses/catalogues/site_organizations.json'), true);
 $TESTING_CONFIG['responses']['credentials'] = json_decode(file_get_contents($config_path.'responses/credentials.json'), true);
 $TESTING_CONFIG['responses']['transactions'] = json_decode(file_get_contents($config_path.'responses/transactions.json'), true);
+$TESTING_CONFIG['responses']['attachments'] = json_decode(file_get_contents($config_path.'responses/attachments.json'), true);
 
 /*
 Check config API key and ENV are correct:

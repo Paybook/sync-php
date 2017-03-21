@@ -20,6 +20,7 @@ final class TransactionsTest extends TestCase
     const FROM = 1483228800;//Jan 1st 2017
     const TO = 1485907200;//Feb 1st 2017
     const WEEK = 669600;// One week in seconds mor or less
+    const SAT_ID_SITE = '56cf5728784806f72b8b456f';
 
     private static $testing_user = null;
     private static $testing_session = null;
@@ -53,8 +54,6 @@ final class TransactionsTest extends TestCase
 
     public function testGetTransactionsCountWithTemporalFilter()
     {
-        global $TESTING_CONFIG;
-
         $session = self::$testing_session;
 
         $options = [
@@ -106,10 +105,25 @@ final class TransactionsTest extends TestCase
         self::$id_transaction = $transaction->id_transaction;
     }
 
-    public function testGetTransactionsFilteredByIdTransaction()
+    public function testGetTransactionsWithApiKey()
     {
         global $TESTING_CONFIG;
         global $Utilities;
+
+        $user = self::$testing_user;
+
+        $options = [
+            'dt_transaction_from' => self::FROM,
+            'dt_transaction_to' => self::TO,
+        ];
+
+        $transactions = paybook\Transaction::get(null, $user->id_user, $options);
+
+        $this->assertInternalType('array', $transactions);
+    }
+
+    public function testGetTransactionsFilteredByIdTransaction()
+    {
         $session = self::$testing_session;
 
         $options = [
@@ -127,8 +141,6 @@ final class TransactionsTest extends TestCase
 
     public function testGetTransactionsFilteredByIdAccount()
     {
-        global $TESTING_CONFIG;
-        global $Utilities;
         $session = self::$testing_session;
 
         $accounts = paybook\Account::get($session);
@@ -154,8 +166,6 @@ final class TransactionsTest extends TestCase
 
     public function testGetTransactionsFilteredByIdCredential()
     {
-        global $TESTING_CONFIG;
-        global $Utilities;
         $session = self::$testing_session;
 
         $credentials_list = paybook\Credentials::get($session);
@@ -181,8 +191,6 @@ final class TransactionsTest extends TestCase
 
     public function testGetTransactionsFilteredByIdSite()
     {
-        global $TESTING_CONFIG;
-        global $Utilities;
         $session = self::$testing_session;
 
         $sites = paybook\Catalogues::get_sites($session);
@@ -208,8 +216,6 @@ final class TransactionsTest extends TestCase
 
     public function testGetTransactionsFilteredByIdSiteOrganization()
     {
-        global $TESTING_CONFIG;
-        global $Utilities;
         $session = self::$testing_session;
 
         $site_organizations = paybook\Catalogues::get_site_organizations($session);
@@ -235,8 +241,6 @@ final class TransactionsTest extends TestCase
 
     public function testGetTransactionsFilteredByWeek()
     {
-        global $TESTING_CONFIG;
-        global $Utilities;
         $session = self::$testing_session;
 
         $transactions_filtered_by_week = 0;
@@ -264,8 +268,99 @@ final class TransactionsTest extends TestCase
         }//End of for
 
         /*
-        Total transactions should be equal to the sum of each bunch of transactions retrieved by id_site_organization:
+        Total transactions should be equal to the sum of each bunch of transactions retrieved:
         */
         $this->assertEquals(self::$total_transactions_count, $transactions_filtered_by_week);
+    }
+
+    public function testGetTransactionsWithSkipLimit()
+    {
+        $session = self::$testing_session;
+
+        $options = [
+            'dt_transaction_from' => self::FROM,
+            'dt_transaction_to' => self::TO,
+        ];
+
+        $batch_size = 8;
+        $pages = intval(self::$total_transactions_count / $batch_size) + 1;
+        $transactions_count = 0;
+        $i = 0;
+
+        while ($i < $pages) {
+            $options['skip'] = $i * $batch_size;
+            $options['limit'] = $batch_size;
+
+            $transactions = paybook\Transaction::get($session, null, $options);
+
+            //Check all pages to have $batch_size
+
+            if ($i != $pages - 1) {
+                $this->assertEquals($batch_size, count($transactions));
+            /*
+            But not the last one (last one could be batch_size or less)
+            */
+            } else {
+                $this->assertLessThan($batch_size + 1, count($transactions));
+            }//End of if
+
+            $transactions_count = $transactions_count + count($transactions);
+            $i = $i + 1;
+        }//End of for
+
+        /*
+        Total transactions should be equal to the sum of each bunch of transactions retrieved:
+        */
+        $this->assertEquals(self::$total_transactions_count, $transactions_count);
+    }
+
+    public function testGetTransactionsWithKeywordsAndSkipKewords()
+    {
+        $session = self::$testing_session;
+
+        $credentials_list = paybook\Credentials::get($session);
+
+        $sat_credentials = null;
+        foreach ($credentials_list as $i => $credentials) {
+            if ($credentials->id_site == self::SAT_ID_SITE && !is_null($credentials->keywords) && count($credentials->keywords) > 0) {
+                $sat_credentials = $credentials;
+                break;
+            }
+        }
+
+        if (is_null($sat_credentials)) {
+            exit(PHP_EOL.'   --> TESTING COULD NOT CONTINUE. id_user does not have Sat Credentials with keywords (keywords testing could not proceed)'.PHP_EOL.PHP_EOL);
+        }
+
+        $options = [
+            'dt_transaction_from' => self::FROM,
+            'dt_transaction_to' => self::TO,
+            'id_credential' => $sat_credentials->id_credential,
+        ];
+
+        $total = paybook\Transaction::get_count($session, null, $options);
+        // print_r(PHP_EOL.'Total: '.$total);
+
+        $validation = [];
+        foreach ($sat_credentials->keywords as $keyword) {
+            $options['keywords'] = $keyword;
+            $transactions = paybook\Transaction::get($session, null, $options);
+            $validation[$keyword] = count($transactions);
+            // print_r(PHP_EOL.'KW   '.$keyword.' -> '.count($transactions));
+        }
+
+        foreach ($sat_credentials->keywords as $keyword) {
+            $options['skip_keywords'] = $keyword;
+            $transactions = paybook\Transaction::get($session, null, $options);
+            $validation[$keyword] = $validation[$keyword] + count($transactions);
+            // print_r(PHP_EOL.'SKW  '.$keyword.' -> '.count($transactions));
+        }
+
+        /*
+        The sum of each keword should be the total always:
+        */
+        foreach ($validation as $keyword => $value) {
+            $this->assertEquals($total, $value);
+        }
     }
 }

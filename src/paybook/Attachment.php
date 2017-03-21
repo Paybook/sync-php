@@ -32,7 +32,6 @@ class Attachment extends Paybook
             if ($extra != null) {
                 $id_attachment = 'attachments/'.$id_attachment.'/extra';
             }//End of if
-
             $attachment_data = self::call($endpoint = $id_attachment, $method = 'get', $params = $params);
 
             return $attachment_data;

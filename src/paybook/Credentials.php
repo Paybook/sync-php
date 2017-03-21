@@ -146,6 +146,7 @@ class Credentials extends Paybook
     {
         $wait = false;
         $got_status = null;
+        $try = 0;
         while (!$wait) {
             $status = $this->get_status($session);
             foreach ($status as $index => $each_status) {
@@ -156,6 +157,10 @@ class Credentials extends Paybook
                 }//End of for
             }//End of foreach
             sleep(3);
+            ++$try;
+            if ($try == 10) {
+                break;
+            }//End of if
         }//End of while 
         return $got_status;
     }//End of wait_for_status

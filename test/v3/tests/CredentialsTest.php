@@ -107,6 +107,7 @@ final class CredentialsTest extends TestCase
 
         $wait = false;
         $got_status = null;
+        $try = 1;
         while (!$wait) {
             $status = $credentials->get_status($session);
 
@@ -120,6 +121,10 @@ final class CredentialsTest extends TestCase
                 }//End of for
             }//End of foreach
             sleep(1);
+            ++$try;
+            if ($try == 10) {
+                break;
+            }//End of if
         }//End of while 
 
         $this->assertEquals(200, $got_status['code']);

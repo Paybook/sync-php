@@ -5,11 +5,11 @@
 			"type" : "string"
 		},
 		"id_site_organization" : {
-			"required" : true,
+			"required" : false,
 			"type" : "string"
 		},
 		"id_site_organization_type" : {
-			"required" : true,
+			"required" : false,
 			"type" : "string"
 		},
 		"name" : {

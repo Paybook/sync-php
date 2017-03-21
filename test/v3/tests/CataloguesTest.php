@@ -240,6 +240,56 @@ final class CataloguesTest extends TestCase
         $this->assertInternalType('array', $site_organizations);
     }
 
+    public function testGetSitesOrganizationsGroupedWithToken()
+    {
+        global $TESTING_CONFIG;
+        global $Utilities;
+
+        $session = self::$testing_session;
+
+        $site_organizations = paybook\Catalogues::get_site_organizations_grouped($session);
+
+        /*
+        Check response
+        */
+        $this->assertInternalType('array', $site_organizations);
+
+        foreach ($site_organizations as $i => $site_organization) {
+
+            /*
+            Check site_organization instance type:
+            */
+            $this->assertInstanceOf(paybook\Site_organization::class, $site_organization);
+
+            /*
+            Check site_organization instance structure and content:
+            */
+            $Utilities['assertAPIObject']($this, $TESTING_CONFIG['responses']['catalogues']['site_organizations'], $site_organization);
+
+            /*
+            Check grouped sites
+            */
+            $this->assertInternalType('array', $site_organization->sites);
+
+            foreach ($site_organization->sites as $j => $site) {
+                $this->assertInstanceOf(paybook\Site::class, $site);
+                $Utilities['assertAPIObject']($this, $TESTING_CONFIG['responses']['catalogues']['sites'], $site);
+            }
+        }
+    }
+
+    public function testGetSitesOrganizationsGroupedWithApiKey()
+    {
+        global $TESTING_CONFIG;
+        global $Utilities;
+
+        $user = self::$testing_user;
+
+        $site_organizations = paybook\Catalogues::get_site_organizations_grouped(null, $user->id_user);
+
+        $this->assertInternalType('array', $site_organizations);
+    }
+
     public function testGetTestingSitesWithToken()
     {
         global $TESTING_CONFIG;

@@ -117,6 +117,26 @@ class Catalogues extends Paybook
         }//End of foreach
         return $site_organizations;
     }//End of get_site_organizations
+
+    public static function get_site_organizations_grouped($session = null, $id_user = null)
+    {
+        self::log('');
+        self::log('Catalogues->get_site_organizations_grouped');
+        $params = [];
+        if ($id_user != null) {
+            $params['api_key'] = self::$api_key;
+            $params['id_user'] = $id_user;
+        } else {
+            $params['token'] = $session->token;
+        }//End of if
+        $site_organization_arrays = self::call($endpoint = '/catalogues/organizations/sites', $method = 'get', $params = $params);
+        $site_organizations = [];
+        foreach ($site_organization_arrays as $index => $site_organization_array) {
+            $site_organization = new Site_organization($site_organization_array);
+            array_push($site_organizations, $site_organization);
+        }//End of foreach
+        return $site_organizations;
+    }//End of get_site_organizations_grouped
 }//End of Catalogues class
 
 class Account_type
@@ -196,6 +216,12 @@ class Site_organization
         $this->avatar = array_key_exists('avatar', $site_organization_array) ? $site_organization_array['avatar'] : '';
         $this->small_cover = array_key_exists('small_cover', $site_organization_array) ? $site_organization_array['small_cover'] : '';
         $this->cover = array_key_exists('cover', $site_organization_array) ? $site_organization_array['cover'] : '';
+        $this->sites = [];
+        if (array_key_exists('sites', $site_organization_array)) {
+            foreach ($site_organization_array['sites'] as $i => $site_array) {
+                array_push($this->sites, new Site($site_array));
+            }
+        }//End of if
         $this->site_organization_array = $site_organization_array;
     }//End of __construct
 

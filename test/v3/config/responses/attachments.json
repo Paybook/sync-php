@@ -1,0 +1,40 @@
+{
+	"fields" : {
+		"id_account" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_user" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_external" : {
+			"required" : false,
+			"type" : "string"
+		},
+		"id_attachment_type" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"id_transaction" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"file" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"extra" : {
+			"required" : false,
+			"type" : "string"
+		},
+		"url" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"dt_refresh" : {
+			"required" : false,
+			"type" : "integer"
+		}
+	}
+} 
