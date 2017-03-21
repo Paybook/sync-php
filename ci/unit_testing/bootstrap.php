@@ -6,7 +6,7 @@ $config_path = __DIR__.'/config/';
 Load testing config
 */
 global $TESTING_CONFIG;
-$TESTING_CONFIG = json_decode(file_get_contents($config_path.'base.json'), true);
+$TESTING_CONFIG = json_decode(file_get_contents($config_path.'env.json'), true);
 if (is_null($TESTING_CONFIG)) {
     exit(PHP_EOL.'Invalid config.json, check JSON file syntax.'.PHP_EOL.PHP_EOL);
 }

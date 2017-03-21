@@ -15,7 +15,7 @@ class Paybook
     public static function init($api_key_value, $test_init = false, $env_url = null)
     {
         if ($api_key_value === true || $api_key_value === false) {
-            global $TESTING_CONFIG;
+            global $TESTING_CONFIG;# It's loaded in bootstrap php when using PHPUnit (unit testing)
             if ($api_key_value === false) {
                 self::$api_key = 'this_is_an_incorrect_api_key';
             } else {
