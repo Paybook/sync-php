@@ -21,6 +21,26 @@ final class TransactionsTest extends TestCase
     const TO = 1485907200;//Feb 1st 2017
     const WEEK = 669600;// One week in seconds mor or less
     const SAT_ID_SITE = '56cf5728784806f72b8b456f';
+    const KEYWORDS = [
+        "3.2",
+        "aerolineas",
+        "cancelado",
+        "cfdiregistrofiscal",
+        "egreso",
+        "emitidas",
+        "ieps",
+        "impuestoslocales",
+        "informacionaduanera",
+        "ingreso",
+        "isr",
+        "iva",
+        "parte",
+        "recibidas",
+        "retenciones",
+        "timbrefiscaldigital",
+        "traslados",
+        "vigente"
+    ];
 
     private static $testing_user = null;
     private static $testing_session = null;
@@ -322,14 +342,14 @@ final class TransactionsTest extends TestCase
 
         $sat_credentials = null;
         foreach ($credentials_list as $i => $credentials) {
-            if ($credentials->id_site == self::SAT_ID_SITE && !is_null($credentials->keywords) && count($credentials->keywords) > 0) {
+            if ($credentials->id_site == self::SAT_ID_SITE) {
                 $sat_credentials = $credentials;
                 break;
             }
         }
 
         if (is_null($sat_credentials)) {
-            exit(PHP_EOL.'   --> TESTING COULD NOT CONTINUE. id_user does not have Sat Credentials with keywords (keywords testing could not proceed)'.PHP_EOL.PHP_EOL);
+            exit(PHP_EOL.'   --> TESTING COULD NOT CONTINUE. id_user does not have Sat Credentials'.PHP_EOL.PHP_EOL);
         }
 
         $options = [
@@ -342,14 +362,14 @@ final class TransactionsTest extends TestCase
         // print_r(PHP_EOL.'Total: '.$total);
 
         $validation = [];
-        foreach ($sat_credentials->keywords as $keyword) {
+        foreach (self::KEYWORDS as $keyword) {
             $options['keywords'] = $keyword;
             $transactions = paybook\Transaction::get($session, null, $options);
             $validation[$keyword] = count($transactions);
             // print_r(PHP_EOL.'KW   '.$keyword.' -> '.count($transactions));
         }
 
-        foreach ($sat_credentials->keywords as $keyword) {
+        foreach (self::KEYWORDS as $keyword) {
             $options['skip_keywords'] = $keyword;
             $transactions = paybook\Transaction::get($session, null, $options);
             $validation[$keyword] = $validation[$keyword] + count($transactions);
