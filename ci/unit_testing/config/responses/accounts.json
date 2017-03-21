@@ -4,13 +4,9 @@
 			"required" : true,
 			"type" : "string"
 		},
-		"account_type" : {
+		"id_account_type" : {
 			"required" : true,
 			"type" : "string"
-		},
-		"extra" : {
-			"required" : false,
-			"type" : "array"
 		},
 		"id_user" : {
 			"required" : true,
@@ -32,6 +28,18 @@
 			"required" : true,
 			"type" : "string"
 		},
+		"is_disable" : {
+			"required" : true,
+			"type" : "integer"
+		},
+		"account_type" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"extra" : {
+			"required" : false,
+			"type" : "array"
+		},
 		"name" : {
 			"required" : true,
 			"type" : "string"
@@ -44,28 +52,20 @@
 			"required" : true,
 			"type" : "integer"
 		},
+		"keywords" : {
+			"required" : true,
+			"type" : "array"
+		},
+		"currency" : {
+			"required" : true,
+			"type" : "string"
+		},
 		"site" : {
 			"required" : true,
 			"type" : "array"
 		},
 		"dt_refresh" : {
 			"required" : true,
-			"type" : "integer"
-		},
-		"is_disable" : {
-			"required" : true,
-			"type" : "integer"
-		},
-		"currency" : {
-			"required" : true,
-			"type" : "string"
-		},
-		"keywords" : {
-			"required" : true,
-			"type" : "array"
-		},
-		"dt_refresh" : {
-			"required" : false,
 			"type" : "integer"
 		}
 	}

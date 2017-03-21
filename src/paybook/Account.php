@@ -7,19 +7,20 @@ class Account extends Paybook
     public function __construct($account_array)
     {
         $this->id_account = array_key_exists('id_account', $account_array) ? $account_array['id_account'] : '';
-        $this->account_type = array_key_exists('account_type', $account_array) ? $account_array['account_type'] : '';
-        $this->extra = array_key_exists('extra', $account_array) ? $account_array['extra'] : '';
+        $this->id_account_type = array_key_exists('id_account_type', $account_array) ? $account_array['id_account_type'] : '';
         $this->id_user = array_key_exists('id_user', $account_array) ? $account_array['id_user'] : '';
         $this->id_external = array_key_exists('id_external', $account_array) ? $account_array['id_external'] : '';
         $this->id_credential = array_key_exists('id_credential', $account_array) ? $account_array['id_credential'] : '';
         $this->id_site = array_key_exists('id_site', $account_array) ? $account_array['id_site'] : '';
         $this->id_site_organization = array_key_exists('id_site_organization', $account_array) ? $account_array['id_site_organization'] : '';
+        $this->is_disable = array_key_exists('is_disable', $account_array) ? $account_array['is_disable'] : null;
+        $this->account_type = array_key_exists('account_type', $account_array) ? $account_array['account_type'] : '';
+        $this->extra = array_key_exists('extra', $account_array) ? $account_array['extra'] : '';
         $this->name = array_key_exists('name', $account_array) ? $account_array['name'] : '';
         $this->number = array_key_exists('number', $account_array) ? $account_array['number'] : '';
         $this->balance = array_key_exists('balance', $account_array) ? $account_array['balance'] : 0;
-        $this->is_disable = array_key_exists('is_disable', $account_array) ? $account_array['is_disable'] : null;
-        $this->currency = array_key_exists('currency', $account_array) ? $account_array['currency'] : null;
         $this->keywords = array_key_exists('keywords', $account_array) ? $account_array['keywords'] : null;
+        $this->currency = array_key_exists('currency', $account_array) ? $account_array['currency'] : null;
         $this->site = array_key_exists('site', $account_array) ? $account_array['site'] : '';
         $this->dt_refresh = array_key_exists('dt_refresh', $account_array) ? $account_array['dt_refresh'] : '';
     }//End of __construct

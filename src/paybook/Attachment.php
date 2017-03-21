@@ -13,11 +13,12 @@ class Attachment extends Paybook
         $this->id_attachment_type = array_key_exists('id_attachment_type', $attachment_array) ? $attachment_array['id_attachment_type'] : '';
         $this->id_transaction = array_key_exists('id_transaction', $attachment_array) ? $attachment_array['id_transaction'] : '';
         $this->is_valid = array_key_exists('is_valid', $attachment_array) ? $attachment_array['is_valid'] : null;
-        $this->mime = array_key_exists('mime', $attachment_array) ? $attachment_array['mime'] : '';
         $this->file = array_key_exists('file', $attachment_array) ? $attachment_array['file'] : '';
-        $this->extra = array_key_exists('extra', $attachment_array) ? $attachment_array['extra'] : '';
+        $this->mime = array_key_exists('mime', $attachment_array) ? $attachment_array['mime'] : '';
         $this->url = array_key_exists('url', $attachment_array) ? $attachment_array['url'] : '';
         $this->dt_refresh = array_key_exists('dt_refresh', $attachment_array) ? $attachment_array['dt_refresh'] : 0;
+        $this->keywords = array_key_exists('keywords', $attachment_array) ? $attachment_array['keywords'] : [];
+        $this->extra = array_key_exists('extra', $attachment_array) ? $attachment_array['extra'] : '';
     }//End of __construct
 
     public static function get($session = null, $id_user = null, $id_attachment = null, $extra = null, $options = [])

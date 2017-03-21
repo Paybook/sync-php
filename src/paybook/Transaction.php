@@ -8,18 +8,24 @@ class Transaction extends Paybook
     {
         $this->id_transaction = array_key_exists('id_transaction', $transaction_array) ? $transaction_array['id_transaction'] : '';
         $this->id_user = array_key_exists('id_user', $transaction_array) ? $transaction_array['id_user'] : '';
-        $this->id_external = array_key_exists('id_external', $transaction_array) ? $transaction_array['id_external'] : '';
         $this->id_site = array_key_exists('id_site', $transaction_array) ? $transaction_array['id_site'] : '';
         $this->id_site_organization = array_key_exists('id_site_organization', $transaction_array) ? $transaction_array['id_site_organization'] : '';
         $this->id_site_organization_type = array_key_exists('id_site_organization_type', $transaction_array) ? $transaction_array['id_site_organization_type'] : '';
         $this->id_account = array_key_exists('id_account', $transaction_array) ? $transaction_array['id_account'] : '';
         $this->id_account_type = array_key_exists('id_account_type', $transaction_array) ? $transaction_array['id_account_type'] : 0;
+        $this->id_currency = array_key_exists('id_currency', $transaction_array) ? $transaction_array['id_currency'] : '';
         $this->is_disable = array_key_exists('is_disable', $transaction_array) ? $transaction_array['is_disable'] : '';
         $this->description = array_key_exists('description', $transaction_array) ? $transaction_array['description'] : '';
         $this->amount = array_key_exists('amount', $transaction_array) ? $transaction_array['amount'] : '';
+        $this->currency = array_key_exists('currency', $transaction_array) ? $transaction_array['currency'] : '';
+        $this->attachments = array_key_exists('attachments', $transaction_array) ? $transaction_array['attachments'] : [];
+        $this->extra = array_key_exists('extra', $transaction_array) ? $transaction_array['extra'] : [];
+        $this->reference = array_key_exists('reference', $transaction_array) ? $transaction_array['reference'] : [];
+        $this->keywords = array_key_exists('keywords', $transaction_array) ? $transaction_array['keywords'] : [];
         $this->dt_transaction = array_key_exists('dt_transaction', $transaction_array) ? $transaction_array['dt_transaction'] : '';
         $this->dt_refresh = array_key_exists('dt_refresh', $transaction_array) ? $transaction_array['dt_refresh'] : '';
-        $this->attachments = array_key_exists('attachments', $transaction_array) ? $transaction_array['attachments'] : [];
+        $this->dt_disable = array_key_exists('dt_disable', $transaction_array) ? $transaction_array['dt_disable'] : '';
+        $this->id_external = array_key_exists('id_external', $transaction_array) ? $transaction_array['id_external'] : '';
     }//End of __construct
 
     public static function get($session = null, $id_user = null, $options = [])

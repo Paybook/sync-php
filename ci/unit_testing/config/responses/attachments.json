@@ -24,11 +24,15 @@
 			"required" : true,
 			"type" : "string"
 		},
+		"is_valid" : {
+			"required" : false,
+			"type" : "integer"
+		},
 		"file" : {
 			"required" : true,
 			"type" : "string"
 		},
-		"extra" : {
+		"mime" : {
 			"required" : false,
 			"type" : "string"
 		},
@@ -40,13 +44,13 @@
 			"required" : false,
 			"type" : "integer"
 		},
-		"is_valid" : {
+		"keywords" : {
 			"required" : false,
-			"type" : "integer"
+			"type" : "array"
 		},
-		"mime" : {
+		"extra" : {
 			"required" : false,
 			"type" : "string"
-		}
+		}	
 	}
 } 

@@ -8,10 +8,6 @@
 			"required" : true,
 			"type" : "string"
 		},
-		"id_external" : {
-			"required" : false,
-			"type" : "string"
-		},
 		"id_site" : {
 			"required" : true,
 			"type" : "string"
@@ -32,6 +28,10 @@
 			"required" : true,
 			"type" : "string"
 		},
+		"id_currency" : {
+			"required" : true,
+			"type" : "string"
+		},
 		"is_disable" : {
 			"required" : true,
 			"type" : "integer"
@@ -44,17 +44,41 @@
 			"required" : true,
 			"type" : "integer"
 		},
+		"currency" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"attachments" : {
+			"required" : true,
+			"type" : "array"
+		},
+		"extra" : {
+			"required" : true,
+			"type" : "array"
+		},
+		"reference" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"keywords" : {
+			"required" : true,
+			"type" : "array"
+		},
 		"dt_transaction" : {
 			"required" : true,
 			"type" : "integer"
 		},
 		"dt_refresh" : {
-			"required" : true,
+			"required" : false,
 			"type" : "integer"
 		},
-		"attachments" : {
-			"required" : true,
-			"type" : "array"
+		"dt_disable" : {
+			"required" : false,
+			"type" : "integer"
+		},
+		"id_external" : {
+			"required" : false,
+			"type" : "string"
 		}
 	}
 }
