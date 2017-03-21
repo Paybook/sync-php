@@ -25,7 +25,7 @@ final class AttachmentsTest extends TestCase
     private static $testing_session = null;
     private static $total_attachments_count = null;
     private static $id_transaction = null;
-    private static $attachment_url = null;
+    private static $id_attachment = null;
 
     public function testGetAttachmentsCount()
     {
@@ -104,7 +104,7 @@ final class AttachmentsTest extends TestCase
         $Utilities['assertAPIObject']($this, $TESTING_CONFIG['responses']['attachments'], $attachment);
 
         self::$id_transaction = $attachment->id_transaction;
-        self::$attachment_url = $attachment->url;
+        self::$id_attachment = $attachment->id_attachment;
     }
 
     public function testGetAttachmentsWithApiKey()
@@ -353,8 +353,7 @@ final class AttachmentsTest extends TestCase
     {
         $session = self::$testing_session;
 
-        $attachment_url = self::$attachment_url;
-        $id_attachment = substr($attachment_url, 1, strlen($attachment_url));
+        $id_attachment = self::$id_attachment;
         $attachment = paybook\Attachment::get($session, null, $id_attachment);
         $this->assertInternalType('string', $attachment);
     }
@@ -362,10 +361,7 @@ final class AttachmentsTest extends TestCase
     public function testGetAttachmentExtra()
     {
         $session = self::$testing_session;
-
-        $attachment_url = self::$attachment_url;
-        $items = explode('/', $attachment_url);
-        $id_attachment = $items[count($items) - 1];
+        $id_attachment = self::$id_attachment;
         $extra = paybook\Attachment::get($session, null, $id_attachment, true);
         $this->assertInternalType('array', $extra);
     }

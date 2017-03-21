@@ -1,5 +1,9 @@
 {
 	"fields" : {
+		"id_attachment" : {
+			"required" : true,
+			"type" : "string"
+		},
 		"id_account" : {
 			"required" : true,
 			"type" : "string"
@@ -35,6 +39,14 @@
 		"dt_refresh" : {
 			"required" : false,
 			"type" : "integer"
+		},
+		"is_valid" : {
+			"required" : false,
+			"type" : "integer"
+		},
+		"mime" : {
+			"required" : false,
+			"type" : "string"
 		}
 	}
 } 
