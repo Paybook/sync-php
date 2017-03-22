@@ -27,6 +27,9 @@ if ($TESTING_CONFIG['src'] === true) {
     require $source_dir.'Session.php';
     require $source_dir.'Transaction.php';
     require $source_dir.'User.php';
+    require $source_dir.'Taxpayer.php';
+    require $source_dir.'Provider.php';
+    require $source_dir.'Invoice.php';
 } else {
     /*
     Loads library installed by Composer (released):
@@ -50,6 +53,9 @@ $TESTING_CONFIG['responses']['catalogues']['site_organizations'] = json_decode(f
 $TESTING_CONFIG['responses']['credentials'] = json_decode(file_get_contents($config_path.'responses/credentials.json'), true);
 $TESTING_CONFIG['responses']['transactions'] = json_decode(file_get_contents($config_path.'responses/transactions.json'), true);
 $TESTING_CONFIG['responses']['attachments'] = json_decode(file_get_contents($config_path.'responses/attachments.json'), true);
+$TESTING_CONFIG['responses']['taxpayers'] = json_decode(file_get_contents($config_path.'responses/taxpayers.json'), true);
+$TESTING_CONFIG['responses']['providers'] = json_decode(file_get_contents($config_path.'responses/providers.json'), true);
+$TESTING_CONFIG['responses']['invoices'] = json_decode(file_get_contents($config_path.'responses/invoices.json'), true);
 
 /*
 Check config API key and ENV are correct:

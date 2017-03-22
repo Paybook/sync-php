@@ -87,6 +87,18 @@ final class PaybookTest extends TestCase
         paybook\User::get();
     }
 
+    public function testPaybookError()
+    {
+        paybook\Paybook::init(false);
+        try {
+            paybook\User::get();
+        } catch (paybook\Error $e) {
+            $this->assertInternalType('integer', $e->get_code());
+            $this->assertInternalType('string', $e->get_message());
+            $this->assertInternalType('string', $e->get_rid());
+        }
+    }
+
     public function testInitializationWithValidApiKey()
     {
         /*

@@ -349,6 +349,7 @@ final class AttachmentsTest extends TestCase
             $options['keywords'] = $keyword;
             $attachments = paybook\Attachment::get($session, null, null, null, $options);
             $validation[$keyword] = count($attachments);
+            unset($options['keywords']);
             // print_r(PHP_EOL.'KW   '.$keyword.' -> '.count($attachments));
         }
 
@@ -356,6 +357,7 @@ final class AttachmentsTest extends TestCase
             $options['skip_keywords'] = $keyword;
             $attachments = paybook\Attachment::get($session, null, null, null, $options);
             $validation[$keyword] = $validation[$keyword] + count($attachments);
+            unset($options['skip_keywords']);
             // print_r(PHP_EOL.'SKW  '.$keyword.' -> '.count($attachments));
         }
 

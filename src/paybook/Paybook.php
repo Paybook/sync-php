@@ -147,7 +147,7 @@ class Paybook
         } else {
             if (strpos($content_type, 'json') !== false) {
                 $paybookResponse = json_decode($response, true);
-                throw new Error($http_code, $paybookResponse['response'], $paybookResponse['message'], $paybookResponse['status']);
+                throw new Error($http_code, $paybookResponse['response'], $paybookResponse['message'], $paybookResponse['status'], $paybookResponse['rid']);
             } else {
                 throw new Error($http_code);
             }//End of if
@@ -162,22 +162,15 @@ class Paybook
     }//End of log
 }//End of Paybook class
 
-// 	@staticmethod
-// 	def __get_api_error__(conn):
-// 		try:
-// 			api_error = Error(conn.status_code,'','','')
-// 		except Exception as e:
-// 			api_error = Error(500,'Connection Error')
-// 		return api_error
-
 class Error extends Exception
 {
-    public function __construct($code, $response = '', $message = '', $status = '')
+    public function __construct($code, $response = '', $message = '', $status = '', $rid = '')
     {
         $this->code = $code;
         $this->response = $response;
         $this->message = $message;
         $this->status = $status;
+        $this->rid = $rid;
     }//End of __construct
 
     public function get_message()
@@ -190,6 +183,11 @@ class Error extends Exception
         return $this->code;
     }//End of get_code
 
+    public function get_rid()
+    {
+        return $this->rid;
+    }//End of get_code
+
     public function get_array()
     {
         return [
@@ -197,6 +195,7 @@ class Error extends Exception
             'response' => $this->response,
             'message' => $this->message,
             'status' => $this->status,
+            'rid' => $this->rid,
         ];//End of return
     }//End of get_array
 }//End of error

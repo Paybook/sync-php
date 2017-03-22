@@ -1,0 +1,16 @@
+{
+	"fields" : {
+		"taxpayer" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"cerValidFrom" : {
+			"required" : true,
+			"type" : "integer"
+		},
+		"cerValidTo" : {
+			"required" : true,
+			"type" : "integer"
+		}
+	}
+} 

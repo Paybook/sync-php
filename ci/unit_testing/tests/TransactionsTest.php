@@ -293,7 +293,7 @@ final class TransactionsTest extends TestCase
         $this->assertEquals(self::$total_transactions_count, $transactions_filtered_by_week);
     }
 
-    public function testGetTransactionsWithSkipLimit()
+    public function testGetTransactionsDtTransactionWithSkipLimit()
     {
         $session = self::$testing_session;
 
@@ -334,6 +334,53 @@ final class TransactionsTest extends TestCase
         $this->assertEquals(self::$total_transactions_count, $transactions_count);
     }
 
+    public function testGetTransactionsDtRefreshWithSkipLimit()
+    {
+        $session = self::$testing_session;
+
+        $options = [
+            'dt_refresh_from' => self::FROM,
+            'dt_refresh_to' => self::TO,
+        ];
+
+        $count = paybook\Transaction::get_count($session, null, $options);
+
+        // print_r(PHP_EOL.'Count: '.$count);
+
+        $batch_size = 16;
+        $pages = intval($count / $batch_size) + 1;
+        $transactions_count = 0;
+        $i = 0;
+
+        while ($i < $pages) {
+            $options['skip'] = $i * $batch_size;
+            $options['limit'] = $batch_size;
+
+            $transactions = paybook\Transaction::get($session, null, $options);
+
+            //Check all pages to have $batch_size
+
+            if ($i != $pages - 1) {
+                $this->assertEquals($batch_size, count($transactions));
+            /*
+            But not the last one (last one could be batch_size or less)
+            */
+            } else {
+                $this->assertLessThan($batch_size + 1, count($transactions));
+            }//End of if
+
+            $transactions_count = $transactions_count + count($transactions);
+
+            // print_r(PHP_EOL.'Page '.$i.' -> '.count($transactions));
+            $i = $i + 1;
+        }//End of for
+
+        /*
+        Total transactions should be equal to the sum of each bunch of transactions retrieved:
+        */
+        $this->assertEquals($count, $transactions_count);
+    }
+
     public function testGetTransactionsWithKeywordsAndSkipKewords()
     {
         $session = self::$testing_session;
@@ -366,6 +413,7 @@ final class TransactionsTest extends TestCase
             $options['keywords'] = $keyword;
             $transactions = paybook\Transaction::get($session, null, $options);
             $validation[$keyword] = count($transactions);
+            unset($options['keywords']);
             // print_r(PHP_EOL.'KW   '.$keyword.' -> '.count($transactions));
         }
 
@@ -373,6 +421,7 @@ final class TransactionsTest extends TestCase
             $options['skip_keywords'] = $keyword;
             $transactions = paybook\Transaction::get($session, null, $options);
             $validation[$keyword] = $validation[$keyword] + count($transactions);
+            unset($options['skip_keywords']);
             // print_r(PHP_EOL.'SKW  '.$keyword.' -> '.count($transactions));
         }
 

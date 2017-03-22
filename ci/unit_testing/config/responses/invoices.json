@@ -1,0 +1,20 @@
+{
+	"fields" : {
+		"taxpayer" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"xml" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"uuid" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"warnings" : {
+			"required" : true,
+			"type" : "array"
+		}
+	}
+} 
