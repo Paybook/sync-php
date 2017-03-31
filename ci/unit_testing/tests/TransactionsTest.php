@@ -94,6 +94,9 @@ final class TransactionsTest extends TestCase
         $this->assertGreaterThan(0, $total_transactions_count);
     }
 
+    /*
+    begin_comment
+    */
     public function testGetTransactions()
     {
         global $TESTING_CONFIG;
@@ -293,6 +296,133 @@ final class TransactionsTest extends TestCase
         $this->assertEquals(self::$total_transactions_count, $transactions_filtered_by_week);
     }
 
+    public function testGetTransactionsDtTransactionSingleCredentialWithSkipLimit()
+    {
+        $session = self::$testing_session;
+
+        $credentials_list = paybook\Credentials::get($session);
+
+        $sat_credentials = null;
+        foreach ($credentials_list as $i => $credentials) {
+            if ($credentials->id_site == self::SAT_ID_SITE) {
+                $sat_credentials = $credentials;
+                break;
+            }
+        }
+
+        if (is_null($sat_credentials)) {
+            exit(PHP_EOL.'   --> TESTING COULD NOT CONTINUE. id_user does not have Sat Credentials'.PHP_EOL.PHP_EOL);
+        }
+
+        $options = [
+            'dt_transaction_from' => self::FROM,
+            'dt_transaction_to' => self::TO,
+            'id_credential' => $sat_credentials->id_credential,
+        ];
+
+        $count = paybook\Transaction::get_count($session, null, $options);
+
+        // print_r($options);
+        // print_r(PHP_EOL.'Count: '.$count);
+
+        $batch_size = 7;
+        $pages = intval($count / $batch_size) + 1;
+        $transactions_count = 0;
+        $i = 0;
+
+        while ($i < $pages) {
+            $options['skip'] = $i * $batch_size;
+            $options['limit'] = $batch_size;
+
+            $transactions = paybook\Transaction::get($session, null, $options);
+
+            // print_r(PHP_EOL.'Page '.$i.' BS = '.$batch_size.' PT = '.count($transactions));
+
+            //Check all pages to have $batch_size
+
+            if ($i != $pages - 1) {
+                $this->assertEquals($batch_size, count($transactions));
+            /*
+            But not the last one (last one could be batch_size or less)
+            */
+            } else {
+                $this->assertLessThan($batch_size + 1, count($transactions));
+            }//End of if
+
+            $transactions_count = $transactions_count + count($transactions);
+
+            $i = $i + 1;
+        }//End of for
+
+        /*
+        Total transactions should be equal to the sum of each bunch of transactions retrieved:
+        */
+        $this->assertEquals($count, $transactions_count);
+    }
+
+    public function testGetTransactionsDtRefreshSingleCredentialWithSkipLimit()
+    {
+        $session = self::$testing_session;
+
+        $credentials_list = paybook\Credentials::get($session);
+
+        $sat_credentials = null;
+        foreach ($credentials_list as $i => $credentials) {
+            if ($credentials->id_site == self::SAT_ID_SITE) {
+                $sat_credentials = $credentials;
+                break;
+            }
+        }
+
+        if (is_null($sat_credentials)) {
+            exit(PHP_EOL.'   --> TESTING COULD NOT CONTINUE. id_user does not have Sat Credentials'.PHP_EOL.PHP_EOL);
+        }
+
+        $options = [
+            'dt_refresh_from' => self::FROM,
+            'dt_refresh_to' => self::TO,
+            'id_credential' => $sat_credentials->id_credential,
+        ];
+
+        $count = paybook\Transaction::get_count($session, null, $options);
+
+        // print_r(PHP_EOL.'Count: '.$count);
+
+        $batch_size = 7;
+        $pages = intval($count / $batch_size) + 1;
+        $transactions_count = 0;
+        $i = 0;
+
+        while ($i < $pages) {
+            $options['skip'] = $i * $batch_size;
+            $options['limit'] = $batch_size;
+
+            $transactions = paybook\Transaction::get($session, null, $options);
+
+            // print_r(PHP_EOL.'Page '.$i.' BS = '.$batch_size.' PT = '.count($transactions));
+
+            //Check all pages to have $batch_size
+
+            if ($i != $pages - 1) {
+                $this->assertEquals($batch_size, count($transactions));
+            /*
+            But not the last one (last one could be batch_size or less)
+            */
+            } else {
+                $this->assertLessThan($batch_size + 1, count($transactions));
+            }//End of if
+
+            $transactions_count = $transactions_count + count($transactions);
+
+            $i = $i + 1;
+        }//End of for
+
+        /*
+        Total transactions should be equal to the sum of each bunch of transactions retrieved:
+        */
+        $this->assertEquals($count, $transactions_count);
+    }
+
     public function testGetTransactionsDtTransactionWithSkipLimit()
     {
         $session = self::$testing_session;
@@ -307,11 +437,15 @@ final class TransactionsTest extends TestCase
         $transactions_count = 0;
         $i = 0;
 
+        // print_r(PHP_EOL.'Count: '.self::$total_transactions_count);
+
         while ($i < $pages) {
             $options['skip'] = $i * $batch_size;
             $options['limit'] = $batch_size;
 
             $transactions = paybook\Transaction::get($session, null, $options);
+
+            // print_r(PHP_EOL.'Page '.$i.' BS = '.$batch_size.' PT = '.count($transactions));
 
             //Check all pages to have $batch_size
 
@@ -325,6 +459,7 @@ final class TransactionsTest extends TestCase
             }//End of if
 
             $transactions_count = $transactions_count + count($transactions);
+
             $i = $i + 1;
         }//End of for
 
@@ -358,6 +493,8 @@ final class TransactionsTest extends TestCase
 
             $transactions = paybook\Transaction::get($session, null, $options);
 
+            // print_r(PHP_EOL.'Page '.$i.' BS = '.$batch_size.' PT = '.count($transactions));
+
             //Check all pages to have $batch_size
 
             if ($i != $pages - 1) {
@@ -371,7 +508,6 @@ final class TransactionsTest extends TestCase
 
             $transactions_count = $transactions_count + count($transactions);
 
-            // print_r(PHP_EOL.'Page '.$i.' -> '.count($transactions));
             $i = $i + 1;
         }//End of for
 
