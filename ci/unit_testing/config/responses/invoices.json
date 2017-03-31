@@ -12,6 +12,14 @@
 			"required" : true,
 			"type" : "string"
 		},
+		"cadena_original" : {
+			"required" : true,
+			"type" : "string"
+		},
+		"qr_string" : {
+			"required" : true,
+			"type" : "string"
+		},
 		"warnings" : {
 			"required" : true,
 			"type" : "array"

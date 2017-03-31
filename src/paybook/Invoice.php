@@ -31,5 +31,7 @@ class Invoice extends Paybook
         $this->xml = array_key_exists('xml', $invoice_array) ? $invoice_array['xml'] : null;
         $this->uuid = array_key_exists('uuid', $invoice_array) ? $invoice_array['uuid'] : null;
         $this->warnings = array_key_exists('warnings', $invoice_array) ? $invoice_array['warnings'] : [];
+        $this->cadena_original = array_key_exists('cadenaOriginal', $invoice_array) ? $invoice_array['cadenaOriginal'] : null;
+        $this->qr_string = array_key_exists('QRString', $invoice_array) ? $invoice_array['QRString'] : null;
     }//End of __construct
 }//End of Credentials class
