@@ -568,4 +568,40 @@ final class TransactionsTest extends TestCase
             $this->assertEquals($total, $value);
         }
     }
+
+    public function testGetCancelledIssuedTransactions()
+    {
+        $session = self::$testing_session;
+
+        $credentials_list = paybook\Credentials::get($session);
+
+        $sat_credentials = null;
+        foreach ($credentials_list as $i => $credentials) {
+            if ($credentials->id_site == self::SAT_ID_SITE && $credentials->username == 'O***********9') {
+                $sat_credentials = $credentials;
+                break;
+            }
+        }
+
+        if (is_null($sat_credentials)) {
+            exit(PHP_EOL.'   --> TESTING COULD NOT CONTINUE. id_user does not have Sat Credentials'.PHP_EOL.PHP_EOL);
+        }
+
+        $options = [
+            'id_credential' => $sat_credentials->id_credential,
+            'dt_transaction_from' => 1488326400,#March 1 2017
+            'dt_transaction_to' => 1491004800,#April 1 2017
+            'keywords' => ['emitidas','cancelado'],
+        ];
+
+        $count = paybook\Transaction::get_count($session, null, $options);
+        
+        $this->assertEquals(1,$count);
+
+        $transactions = paybook\Transaction::get($session, null, $options);
+
+        $this->assertEquals(1,count($transactions));
+
+    }
+
 }

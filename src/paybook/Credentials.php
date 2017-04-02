@@ -8,6 +8,10 @@ class Credentials extends Paybook
     {
         self::log('');
         self::log('Credentials->__construct');
+        $this->status = null;
+        if (is_null($session) && is_null($id_user) && is_null($id_site) && is_null($credentials) && is_null($credentials_array)) {
+            return;
+        }
         $this->id_site = null;
         $this->twofa = null;
         $this->twofa_config = null;
@@ -92,18 +96,15 @@ class Credentials extends Paybook
         } else {
             $params['token'] = $session->token;
         }//End of if
-        if ($this->id_site != null) {
-            $params['id_site'] = $this->id_site;
-            $status = self::call($endpoint = null, $method = 'get', $data = $params, $params = $params, $headers = '', $url = $this->status);
-            foreach ($status as $index => $each_status) {
-                $code = $each_status['code'];
-                if ($code == 410) {
-                    $this->twofa = $each_status['address'];
-                    $this->twofa_config = $each_status['twofa'][0];
-                }//End of if
-            }//End of foreach
-            return $status;
-        }//End of if
+        $status = self::call($endpoint = null, $method = 'get', $data = $params, $params = $params, $headers = '', $url = $this->status);
+        foreach ($status as $index => $each_status) {
+            $code = $each_status['code'];
+            if ($code == 410) {
+                $this->twofa = $each_status['address'];
+                $this->twofa_config = $each_status['twofa'][0];
+            }//End of if
+        }//End of foreach
+        return $status;
     }//End of get_status
 
     public function set_twofa($session = null, $id_user = null, $twofa_value = null)
@@ -117,15 +118,41 @@ class Credentials extends Paybook
         } else {
             $params['token'] = $session->token;
         }//End of if
-        if ($this->id_site != null) {
-            $params['id_site'] = $this->id_site;
-            $params['twofa'] = [];
-            $params['twofa'][$this->twofa_config['name']] = $twofa_value;
-            self::call($endpoint = null, $method = 'post', $data = $params, $params = $params, $headers = '', $url = $this->twofa);
+        $params['twofa'] = [];
+        $params['twofa'][$this->twofa_config['name']] = $twofa_value;
+        self::call($endpoint = null, $method = 'post', $data = $params, $params = $params, $headers = '', $url = $this->twofa);
 
-            return true;
-        }//End of if
+        return true;
     }//End of set_twofa
+
+    public function sync($session = null, $id_user = null, $id_credential = null)
+    {
+        self::log('');
+        self::log('Credentials->sync');
+        if ($id_user != null) {
+            $data = [
+                'api_key' => self::$api_key,
+                'id_user' => self::$id_user,
+            ];//End of $data
+        } else {
+            $data = [
+                'token' => $session->token,
+            ];//End of $data
+        }//End of if
+        $credentials_array = self::call($endpoint = 'credentials/'.$id_credential.'/sync', $method = 'put', $data = $data);
+        $this->id_site = null;
+        $this->twofa = null;
+        $this->twofa_config = null;
+        $this->id_credential = $credentials_array['id_credential'];
+        $this->username = $credentials_array['username'];
+        $this->dt_refresh = array_key_exists('dt_refresh', $credentials_array) ? $credentials_array['dt_refresh'] : null;
+        $this->id_site_organization = array_key_exists('id_site_organization', $credentials_array) ? $credentials_array['id_site_organization'] : null;
+        $this->id_site_organization_type = array_key_exists('id_site_organization_type', $credentials_array) ? $credentials_array['id_site_organization_type'] : null;
+        $this->ws = array_key_exists('ws', $credentials_array) ? $credentials_array['ws'] : null;
+        $this->status = array_key_exists('status', $credentials_array) ? $credentials_array['status'] : null;
+        $this->twofa = array_key_exists('twofa', $credentials_array) ? $credentials_array['twofa'] : null;
+        $this->keywords = array_key_exists('keywords', $credentials_array) ? $credentials_array['keywords'] : null;
+    }//End of sync
 
     public function get_array()
     {
@@ -158,6 +185,7 @@ class Credentials extends Paybook
             }//End of foreach
             sleep(3);
             ++$try;
+            // print_r($try.PHP_EOL);
             if ($try == 10) {
                 break;
             }//End of if
