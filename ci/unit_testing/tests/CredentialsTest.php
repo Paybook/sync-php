@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
  * @covers Credentials
  */
 
+$CREDENTIAL_RATE_LIMIT_EXCEEDED = 60;#1 minute
 paybook\Paybook::init(true);
 
 final class CredentialsTest extends TestCase
@@ -173,8 +174,47 @@ final class CredentialsTest extends TestCase
         self::$id_token_credentials = $credentials->id_credential;
     }
 
+    public function testCredentialRateLimitExceededWithNormalSite()
+    {
+        global $Utilities;
+        global $TESTING_CONFIG;
+
+        $session = self::$testing_session;
+        $id_normal_credentials = self::$id_normal_credentials;
+        $credentials = new paybook\Credentials();
+
+        try {
+            $credentials->sync($session, null, $id_normal_credentials);
+        } catch (paybook\Error $e) {
+            $this->assertEquals($e->get_code(), 400);
+            $this->assertContains('Credential Rate Limit exceeded', $e->get_message(), '', true);
+        }
+    }
+
+    public function testCredentialRateLimitExceededWithTokenSite()
+    {
+        global $Utilities;
+        global $TESTING_CONFIG;
+
+        $session = self::$testing_session;
+
+        $id_token_credentials = self::$id_token_credentials;
+        $credentials = new paybook\Credentials();
+
+        try {
+            $credentials->sync($session, null, $id_token_credentials);
+        } catch (paybook\Error $e) {
+            $this->assertEquals($e->get_code(), 400);
+            $this->assertContains('Credential Rate Limit exceeded', $e->get_message(), '', true);
+        }
+    }
+
     public function testSyncExistingCredentialsAndStatus()
     {
+        global $CREDENTIAL_RATE_LIMIT_EXCEEDED;
+
+        sleep($CREDENTIAL_RATE_LIMIT_EXCEEDED);
+
         global $Utilities;
         global $TESTING_CONFIG;
 
