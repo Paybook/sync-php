@@ -3,6 +3,9 @@
 $config_path = __DIR__.'/config/';
 
 /*
+
+phpunit --debug --bootstrap bootstrap.php tests/
+
 Load testing config
 */
 global $TESTING_CONFIG;
