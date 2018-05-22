@@ -84,7 +84,12 @@ function get_input_value()
 {
     _print('');
     global $INDENT;
-    $input_value = readline($INDENT.$INDENT.$INDENT.'Respuesta: ');
+    if (PHP_OS == 'WINNT') {
+      $input_value = stream_get_line(STDIN, 1024, PHP_EOL);
+    } else {
+      $input_value = readline($INDENT.$INDENT.$INDENT.'Respuesta: ');
+    }
+    
     _print('');
 
     return $input_value;
