@@ -9,8 +9,6 @@ class Session extends Paybook
         $this->user = $user;
         if ($token != null) {
             $this->token = $token;
-            $this->iv = null;
-            $this->key = null;
         } else {
             self::log('');
             self::log('Session->__construct');
@@ -20,8 +18,6 @@ class Session extends Paybook
             ];//End of $data
             $session_array = self::call($endpoint = 'sessions', $method = 'post', $data = $data);
             $this->token = $session_array['token'];
-            $this->iv = $session_array['iv'];
-            $this->key = $session_array['key'];
         }//End of if
     }//End of __construct
 
@@ -51,8 +47,6 @@ class Session extends Paybook
     public static function get_array()
     {
         return [
-            'iv' => $this->iv,
-            'key' => $this->key,
             'token' => $this->token,
         ];//End of return
         $this->token = $token;
