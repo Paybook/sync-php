@@ -3,12 +3,11 @@
 /*
 Uncomment this to run it as external library:
 */
-// require __DIR__.'/vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 // --------
 
 /*
 Uncomment this to run it with source code:
-*/
 $source_dir = __DIR__.'/../src/paybook/';
 require $source_dir.'Paybook.php';
 require $source_dir.'Account.php';
@@ -18,6 +17,7 @@ require $source_dir.'Credentials.php';
 require $source_dir.'Session.php';
 require $source_dir.'Transaction.php';
 require $source_dir.'User.php';
+*/
 // --------
 
 $INDENT = '   ';
