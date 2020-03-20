@@ -1,17 +1,22 @@
 {
-    "name": "paybook/paybook",
-    "description": "A powerful financial API. Hang with me, and I’ll help you connect to the tax authority (SAT) and most banks in Mexico.",
-    "keywords": ["financial", "sat", "bank"],
-    "homepage": "https://github.com/Paybook/sync-php",
-    "type": "library",
+    "name": "paybook/sync-php",
+    "description": "A package to consume Sync REST for humans without pain",
+    "keywords": ["financial", "sat", "bank", "sync", "paybook"],
+    "type": "package",
     "license": "MIT",
     "authors": [
         {
-            "name": "Hugo Ochoa",
-            "email": "hugo@paybook.com"
+            "name": "Aldo Escobar",
+            "email": "aldo.escobar@paybook.com"
         }
     ],
+    "minimum-stability": "dev",
+    "require": {
+        "rmccue/requests": "^1.7"
+    },
     "autoload": {
-        "psr-4": {"paybook\\": "src/paybook"}
+        "psr-4": {
+            "Paybook\\Sync\\" : "src"
+        }
     }
 }
