@@ -10,7 +10,8 @@
             "email": "aldo.escobar@paybook.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "require": {
         "rmccue/requests": "^1.7"
     },
