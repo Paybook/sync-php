@@ -184,7 +184,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 $app = AppFactory::create();
 
-$app->get('/webhook', function (Request $request, Response $response, $args) {
+$app->post('/webhook', function (Request $request, Response $response, $args) {
     $response->getBody()->write("Hello from my webhook!");
     return $response;
 });
