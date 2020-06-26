@@ -1,6 +1,6 @@
 {
     "name": "paybook/sync-php",
-    "description": "A package to consume Sync REST for humans without pain",
+    "description": "A package to consume Syncfy REST for humans without pain",
     "keywords": ["financial", "sat", "bank", "sync", "paybook"],
     "type": "package",
     "license": "MIT",

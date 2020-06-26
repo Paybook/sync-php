@@ -9,7 +9,7 @@ class Sync {
     {
         try {
             $session = Sync::run($AUTH, '/sessions', $id_user, 'POST');
-            if (array_key_exists('token', $session)) {
+            if (isset($session->token)) {
                 $response = array("token"=>$session->token);
                 return $response;
             }else {
