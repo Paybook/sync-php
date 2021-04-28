@@ -97,7 +97,7 @@ Las credenciales se refieren a la información de terceras personas que se neces
 >Es necesario tener al menos un usuario registrado para crear credenciales.
 
 ### Accounts ([Cuentas](#cuentas))
-Las cuentas son repositorios de transacciones de usuarios finales, que normalmente se clasifican por alguna característica como tipo y/o número de cuenta. La cuenta y la información de las transacciones pueden recuperarse desde sitios de terceros y se actualizan hasta tres veces al día.
+Las cuentas son repositorios de transacciones de usuarios finales, que normalmente se clasifican por alguna característica como tipo y/o número de cuenta. La cuenta y la información de las transacciones pueden recuperarse desde sitios de terceros y se actualizan hasta una vez al día.
 
 ### Transactions ([Transacciones](#transacciones))
 Las transacciones son los movimientos financieros que están relacionados con una cuenta, y reflejan el ingreso o egreso que el usuario final tiene en determinado sitio. La cantidad de información histórica que Sync puede recuperar, varía dependiendo de la fuente pero, por lo general, estarán disponibles las transacciones de 60 días.
