@@ -192,7 +192,7 @@ $app->post('/webhook', function (Request $request, Response $response, $args) {
 $app->run();
 ```
 
-Habiendo terminado lo anterior, instalamos slim con el comando `composer require slim/slim slim/psr7` y luego corremos nuestro servidor con el comando `php -S server.js`
+Habiendo terminado lo anterior, instalamos slim con el comando `composer require slim/slim slim/psr7` y luego corremos nuestro servidor con el comando `php -S server.php`
 
 > **Warning:** The built-in web server was designed to aid application development. It may also be useful for testing purposes or for application demonstrations that are run in controlled environments. It is not intended to be a full-featured web server. It should not be used on a public network.
 
