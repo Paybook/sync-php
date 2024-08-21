@@ -96,9 +96,6 @@ function errorHandler($error) {
     if (!method_exists($error, 'get_code')) {
         print_r($error);
     } else {
-        echo "-------ERROR-------".PHP_EOL;
-        print_r($error->get_response());
-        echo "Code: ".$error->get_code()." Message: ".$error->getMessage().PHP_EOL;
         throw $error;
     }
 } // END errorHandler function
