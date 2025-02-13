@@ -2,7 +2,7 @@
 namespace Paybook\Sync;
 use Requests;
 use Exception;
-define('SYNC_API_URL', "https://sync.paybook.com/v1");
+define('SYNC_API_URL', "https://opendata-api.syncfy.com/v1");
 
 class Sync {
     public static function auth(array $AUTH, array $id_user)
