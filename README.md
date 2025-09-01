@@ -682,6 +682,7 @@ Devuelve:
 </td>
   </tr>
   <tr>
+    <td>/credentials/pulls
     <td>Crea o actualiza credenciales</td>
     <td>POST</td>
   <td rowspan="1">
@@ -846,7 +847,7 @@ $credentials[$twofaSite->credentials[1]->name] = 'test';
 $payload['credentials'] = $credentials;
 $twofaCredential = Sync::run(
   $token,
-  "/credentials", 
+  "/credentials/pulls", 
   $payload,
   'POST'
 );
