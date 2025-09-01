@@ -664,7 +664,7 @@ Devuelve:
 </thead>
 <tbody>
   <tr>
-    <td rowspan="2">/credentials</td>
+    <td>/credentials</td>
     <td>Consulta credenciales registradas</td>
     <td>GET</td>
 <td rowspan="4">
