@@ -112,7 +112,7 @@ function main()
         $payload['credentials'] = $credentials;
         $response = Sync::run(
             $token,
-            "/credentials", 
+            "/credentials/pulls", 
             $payload,
             'POST'
         );
@@ -262,7 +262,7 @@ function main()
         $payload['credentials'] = $credentials;
         $response = Sync::run(
             $token,
-            "/credentials", 
+            "/credentials/pulls", 
             $payload,
             'POST'
         );
