@@ -896,7 +896,7 @@ $response = Sync::run(
 ]
 */
 $is_twofa = False;
-if($response[sizeof($response)->code] == 410) {
+if($response[sizeof($response) - 1]->code == 410) {
   $is_twofa = True;
 }
 ```
